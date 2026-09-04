@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mitr"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/latin-modern-math"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/diagramatics@1.5/css/diagramatics.css"
+      rel="stylesheet"
+    />
+    <title>TIR Sim 1</title>
+    <style>
+      #diagram {
+        background-color: #ffffff;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      @media (orientation: landscape) {
+        #diagram {
+          height: 100vh;
+        }
+      }
+      @media (orientation: portrait) {
+        #diagram {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="svg" id="diagram"></svg>
+    <div class="control" id="control"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="module">
+      import * as dg from "https://cdn.jsdelivr.net/npm/diagramatics@latest/dist/diagramatics.js";
+
+      // handle MathJax
+      let handletex = (str, conf) => {
+        return MathJax.tex2svg(str, conf).innerHTML;
+      };
+
+      // define the `draw` function
+      let draw = (svgElement, ...diagrams) => {
+        dg.draw_to_svg(svgElement, dg.diagram_combine(...diagrams));
+        dg.handle_tex_in_svg(svgElement, handletex);
+      };
+
+      // shared parameters
+      let radius = 0.4;
+      let glassRefracIndex = 1.5;
+      let airRefracIndex = 1;
+
+      // shared diagram components
+      let glass = dg
+        .rectangle(1, 0.5)
+        .stroke("none")
+        .fill("lightblue")
+        .position(dg.V2(0, -0.25));
+      let air = dg
+        .rectangle(1, 0.5)
+        .stroke("none")
+        .fill("white")
+        .position(dg.V2(0, 0.25));
+      let boundary = dg
+        .line(dg.V2(-0.5, 0), dg.V2(0.5, 0))
+        .strokewidth(0.002)
+        .stroke("black")
+        .vectoreffect("none");
+      let sceneStatic = dg.diagram_combine(glass, air, boundary);
+      let normalLine = dg
+        .line(dg.V2(0, 0.38), dg.V2(0, -0.45))
+        .strokedasharray([0.02, 0.028])
+        .strokewidth(0.002)
+        .vectoreffect("none");
+      let incidentRay = dg
+        .line(dg.V2(0, 0), dg.V2(0, -radius))
+        .strokewidth(0.008)
+        .stroke("orange")
+        .vectoreffect("none");
+      let refracRay = dg
+        .arrow1(dg.V2(0, 0), dg.V2(0, radius), 0.02)
+        .strokewidth(0.008)
+        .stroke("orange")
+        .fill("orange")
+        .vectoreffect("none");
+      let reflecRay = dg
+        .arrow1(dg.V2(0, 0), dg.V2(0, -radius), 0.02)
+        .strokewidth(0.008)
+        .stroke("orange")
+        .fill("orange")
+        .vectoreffect("none");
+      let laserPointerBody = dg
+        .rectangle(0.05, 0.12)
+        .fill("white")
+        .apply(dg.mod.round_corner(0.01));
+      let laserPointerEmitter = dg
+        .rectangle(0.025, 0.018)
+        .fill("black")
+        .position(dg.V2(0, 0.06));
+      let laserPointer = dg
+        .diagram_combine(laserPointerEmitter, laserPointerBody)
+        .move_origin(dg.V2(0, 0));
+      let generateTrack = (startAngle, endAngle, nSteps, targetAngle) => {
+        let points = [];
+        let targetIsAdded = false;
+        for (let i = 0; i <= nSteps; i++) {
+          let currentAngle =
+            startAngle + (i * (endAngle - startAngle)) / nSteps;
+          if (currentAngle > targetAngle && targetIsAdded == false) {
+            points.push(
+              dg.V2(
+                radius * Math.cos(targetAngle),
+                radius * Math.sin(targetAngle),
+              ),
+            );
+            targetIsAdded = true;
+          }
+          points.push(
+            dg.V2(
+              radius * Math.cos(currentAngle),
+              radius * Math.sin(currentAngle),
+            ),
+          );
+        }
+        return dg.curve(points);
+      };
+      let glassTrack = generateTrack(
+        1.0005 * Math.PI,
+        1.4995 * Math.PI,
+        120,
+        1.22997 * Math.PI,
+      );
+      let airTrack = generateTrack(
+        0.5005 * Math.PI,
+        0.9995 * Math.PI,
+        120,
+        0.75 * Math.PI,
+      );
+      let refracLabel = dg
+        .text("refract")
+        .fontfamily("mitr, sans-serif")
+        .fontsize("18")
+        .fontscale(0.002)
+        .move_origin(dg.V2(-0.2, -0.03))
+        .position(dg.V2(0, 0));
+      let reflecLabel = dg
+        .text("reflect")
+        .fontfamily("mitr, sans-serif")
+        .fontsize("18")
+        .fontscale(0.002)
+        .move_origin(dg.V2(-0.2, -0.03))
+        .position(dg.V2(0, 0));
+      let n1Label = dg
+        .text("$n_1$")
+        .fontfamily("mitr, sans-serif")
+        .fontsize("18")
+        .fontscale(0.002)
+        .position(dg.V2(0.35, 0.1));
+      let n2Label = dg
+        .text("$n_2$")
+        .fontfamily("mitr, sans-serif")
+        .fontsize("18")
+        .fontscale(0.002)
+        .position(dg.V2(0.35, -0.1));
+
+      // --------------------- diagram ------------------------- //
+      let diagram = document.getElementById("diagram");
+      let control = document.getElementById("control");
+      let interactive = new dg.Interactive(control, diagram);
+      interactive.draw_function = (inp) => {
+        let p = inp["p"];
+        // snell's law calculation
+        let incidentAngle = Math.atan2(-p.x, p.y);
+        let refracAngle = Math.asin(
+          Math.sin(incidentAngle) * (airRefracIndex / glassRefracIndex),
+        );
+        // fresnel calculation assuming laser light is S-polarized relative to the plane of incident
+        let reflectance = Math.pow(
+          (airRefracIndex * Math.cos(incidentAngle) -
+            glassRefracIndex * Math.cos(refracAngle)) /
+            (airRefracIndex * Math.cos(incidentAngle) +
+              glassRefracIndex * Math.cos(refracAngle)),
+          2,
+        );
+        let transmittance = 1 - reflectance;
+        // angle annotation
+        let incidentAnno = dg.annotation
+          .angle([dg.V2(0, 1), dg.V2(0, 0), p], "$\\theta_1$", 0.1, 0.06)
+          .strokewidth(0.002)
+          .vectoreffect("none")
+          .fontscale(0.002);
+        let refracAnno = dg.annotation
+          .angle(
+            [
+              dg.V2(0, -1),
+              dg.V2(0, 0),
+              dg.V2(Math.sin(refracAngle), -Math.cos(refracAngle)),
+            ],
+            incidentAngle < (89.8 * Math.PI) / 180 ? "$\\theta_2$" : "",
+            0.1,
+            0.06,
+          )
+          .strokewidth(0.002)
+          .vectoreffect("none")
+          .fontscale(0.002);
+        // draw the diagram
+        draw(
+          diagram,
+          sceneStatic,
+          normalLine,
+          incidentAnno,
+          refracAnno.opacity(incidentAngle < (89.8 * Math.PI) / 180 ? 1 : 0),
+          incidentRay.rotate(Math.PI + incidentAngle),
+          refracRay.rotate(Math.PI + refracAngle).opacity(transmittance),
+          reflecRay.rotate(Math.PI - incidentAngle).opacity(reflectance),
+          laserPointer.position(p).rotate(Math.PI + incidentAngle),
+          refracLabel
+            .rotate(-Math.PI / 2 + refracAngle)
+            .textangle(Math.PI / 2 - refracAngle)
+            .opacity(transmittance),
+          reflecLabel
+            .rotate(Math.PI / 2 - incidentAngle)
+            .textangle(-Math.PI / 2 + incidentAngle)
+            .opacity(reflectance),
+          n2Label,
+          n1Label,
+        );
+      };
+      interactive.locator(
+        "p",
+        dg.V2(
+          -radius * Math.sin(dg.to_radian(60)),
+          radius * Math.cos(dg.to_radian(60)),
+        ),
+        0.05,
+        "blue",
+        airTrack,
+        true,
+      );
+      interactive.draw();
+      interactive.locator_initial_draw();
+      interactive.draw();
+    </script>
+  </body>
+</html>
