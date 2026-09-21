@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mitr">
+        <title>Natural Frequency &amp; Resonance</title>
+    </head>
+
+    <body>
+        <div class="SimBox" id="simBox">
+            <canvas id="canvas" width="1000" height="700" style="background: url('./Illustration/Exports/BG.png')"></canvas>
+            <img class='overlay' src="./Illustration/Exports/Overlay.png" alt="" />
+            <div class='kSlider'>
+                <input type="range" id="SpringStiffnessSlider" min="25" max="50" step="1" value="36">
+            </div>
+            <div class='mSlider'>
+                <input type="range" id="MassSlider" min="1" max="4" step="0.1" value="2.0">
+            </div>
+            <div class='fSlider'>
+                <input type="range" id="WindFrequencySlider" min="0.2" max="1.2" step="0.01" value="0.40">
+            </div>
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="bloweronoffswitch" tabindex="0">
+                <label class="onoffswitch-label" for="bloweronoffswitch"></label>
+            </div>
+            <canvas id="canvasTop" width="1000" height="700"></canvas>
+        </div>
+
+        <script src="Natural Frequency.js"></script>
+    </body>
+</html>

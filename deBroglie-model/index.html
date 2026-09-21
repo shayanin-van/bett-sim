@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mitr"
+    />
+    <title>Atomic Models</title>
+    <style>
+      body {
+        font-family: "Mitr", sans-serif;
+        color: rgb(114, 114, 114);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      #myCanvas {
+        border: 0px;
+        touch-action: none;
+        background-color: #ffffff;
+        width: min(95vw, calc(100vh - 70px));
+        aspect-ratio: 1;
+        margin-bottom: 20px;
+      }
+      button {
+        border-radius: 8px;
+        border: 1px solid transparent;
+        padding: 0.3em 0.4em;
+        font-size: 1em;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: #cc785c;
+        color: #ffffff;
+        cursor: pointer;
+        transition: border-color 0.25s;
+        margin: 4px;
+      }
+      button:hover {
+        border-color: #ffffff;
+      }
+      button:focus,
+      button:focus-visible {
+        outline: 8px #ffffff auto -webkit-focus-ring-color;
+      }
+      button:disabled {
+        background-color: #ccc;
+        color: #666;
+        opacity: 0.7;
+      }
+
+      input[type="range"] {
+        accent-color: #cc785c;
+        background: transparent; /* Remove default background */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <label>Curl the electron wave</label>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 260px;
+        text-align: center;
+      "
+    >
+      <input type="range" id="slider" min="0" max="1" value="0" step="0.001" />
+    </div>
+
+    <script>
+      // get the canvas element
+      const canvas = document.getElementById("myCanvas");
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+
+      // get the 2D rendering context
+      const ctx = canvas.getContext("2d");
+
+      // sizing
+      let phyWidth = 30; // in cm.
+      let phyHeight = phyWidth; // in cm.
+      let ppcm = canvas.width / phyWidth; // ppcm = pixel per centimeter
+      let camX = 14.2;
+      let camY = 0;
+
+      let atomOpacity = 0;
+      let textOpacity = 1;
+
+      // physics
+
+      // time
+      const startTime = Date.now() / 1000;
+      let prevTime = startTime;
+      let currentTime;
+      let deltaTime;
+
+      // coordinate converting function from physical to canvas space
+      function xCon(x) {
+        return x + phyWidth / 2 - camX;
+      }
+      function yCon(y) {
+        return -y + phyWidth / 2 + camY;
+      }
+
+      // resize event
+      window.addEventListener("resize", () => {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        ppcm = canvas.width / phyWidth; // ppcm = pixel per centimeter
+      });
+
+      // proton
+      function drawProton() {
+        ctx.fillStyle = "#aec7e8" + map01ToHex(atomOpacity);
+        ctx.strokeStyle = "#1f77b4" + map01ToHex(atomOpacity);
+        ctx.lineWidth = 0.06 * ppcm;
+        ctx.beginPath();
+        ctx.arc(xCon(0) * ppcm, yCon(0) * ppcm, 0.3 * ppcm, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
+        // text
+        ctx.fillStyle = "#1f77b4" + map01ToHex(atomOpacity);
+        ctx.font = 0.5 * ppcm + "px mitr";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("p", xCon(0) * ppcm, yCon(0.06) * ppcm);
+      }
+
+      // orbits
+      class Orbits {
+        constructor() {
+          this.r1 = 1.2 / 2;
+          this.r2 = 4 / 2;
+          this.r3 = 9 / 2;
+        }
+
+        drawOrbits() {
+          ctx.strokeStyle = "#888888" + map01ToHex(atomOpacity);
+          ctx.lineWidth = 0.06 * ppcm;
+          ctx.setLineDash([10, 12]);
+          // r1
+          ctx.beginPath();
+          ctx.arc(
+            xCon(0) * ppcm,
+            yCon(0) * ppcm,
+            this.r1 * ppcm,
+            0,
+            2 * Math.PI
+          );
+          ctx.stroke();
+          // r2
+          ctx.beginPath();
+          ctx.arc(
+            xCon(0) * ppcm,
+            yCon(0) * ppcm,
+            this.r2 * ppcm,
+            0,
+            2 * Math.PI
+          );
+          ctx.stroke();
+          // r3
+          ctx.beginPath();
+          ctx.arc(
+            xCon(0) * ppcm,
+            yCon(0) * ppcm,
+            this.r3 * ppcm,
+            0,
+            2 * Math.PI
+          );
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+
+        draw() {
+          this.drawOrbits();
+        }
+      }
+
+      // text
+      function drawText() {
+        // n = 1
+        ctx.fillStyle = "#888888" + map01ToHex(textOpacity);
+        ctx.strokeStyle = "#888888" + map01ToHex(textOpacity);
+        ctx.lineWidth = 0.06 * ppcm;
+        ctx.setLineDash([5, 5]);
+        ctx.font = 1.4 * ppcm + "px mitr";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillText("1 full wavelength", xCon(1) * ppcm, yCon(10) * ppcm);
+        ctx.beginPath();
+        ctx.moveTo(xCon(2) * ppcm, yCon(9) * ppcm);
+        ctx.lineTo(xCon(2) * ppcm, yCon(0.2) * ppcm);
+        ctx.stroke();
+        // n = 2
+        ctx.fillText("2 full wavelengths", xCon(7) * ppcm, yCon(7) * ppcm);
+        ctx.beginPath();
+        ctx.moveTo(xCon(9) * ppcm, yCon(6) * ppcm);
+        ctx.lineTo(xCon(9) * ppcm, yCon(-1) * ppcm);
+        ctx.stroke();
+        // n = 3
+        ctx.fillText("3 full wavelengths", xCon(13) * ppcm, yCon(4) * ppcm);
+        ctx.beginPath();
+        ctx.moveTo(xCon(17) * ppcm, yCon(3) * ppcm);
+        ctx.lineTo(xCon(17) * ppcm, yCon(-3.6) * ppcm);
+        ctx.stroke();
+      }
+
+      // camera
+      function updateAnimation() {
+        phyWidth = 30 - document.getElementById("slider").value * (30 - 10);
+        camX = 14.2 - document.getElementById("slider").value * (14.2 - 0);
+        camY = 4 - document.getElementById("slider").value * (4 - 0);
+
+        if (document.getElementById("slider").value < 0.7) {
+          atomOpacity = 0;
+        } else {
+          atomOpacity =
+            (document.getElementById("slider").value - 0.7) / (1 - 0.7);
+        }
+
+        if (document.getElementById("slider").value < 0.1) {
+          textOpacity = (0.1 - document.getElementById("slider").value) / 0.1;
+        } else {
+          textOpacity = 0;
+        }
+
+        phyHeight = phyWidth;
+        ppcm = canvas.width / phyWidth;
+      }
+
+      // electron class
+      class Electron {
+        constructor() {
+          this.curlAngle = 0;
+          this.detail = 250;
+          this.n1SectL = (2 * Math.PI * orbits.r1) / this.detail;
+          this.n2SectL = (2 * Math.PI * orbits.r2) / this.detail;
+          this.n3SectL = (2 * Math.PI * orbits.r3) / this.detail;
+          this.amplitude = 0.1;
+          this.omega = 3;
+          this.k1 = (2 * Math.PI) / ((2 * Math.PI * orbits.r1) / 1);
+          this.k2 = (2 * Math.PI) / ((2 * Math.PI * orbits.r2) / 2);
+          this.k3 = (2 * Math.PI) / ((2 * Math.PI * orbits.r3) / 3);
+        }
+
+        draw() {
+          ctx.strokeStyle = "#d47263";
+          ctx.lineWidth = 2;
+          let angle = document.getElementById("slider").value * 2 * Math.PI;
+          let sectAngle = angle / this.detail;
+          // n = 1
+          ctx.beginPath();
+          ctx.moveTo(xCon(0) * ppcm, yCon(-orbits.r1) * ppcm);
+          let currentAngle1 = 0;
+          let currentX1 = 0;
+          let currentY1 = -orbits.r1;
+          for (let i = 0; i < this.detail; i++) {
+            currentAngle1 = currentAngle1 + sectAngle;
+            currentX1 = currentX1 + this.n1SectL * Math.cos(currentAngle1);
+            currentY1 = currentY1 + this.n1SectL * Math.sin(currentAngle1);
+            let disp =
+              2 *
+              this.amplitude *
+              Math.sin(this.k1 * this.n1SectL * i) *
+              Math.cos(this.omega * currentTime);
+            ctx.lineTo(
+              xCon(
+                currentX1 - disp * Math.sin(currentAngle1 + 0.5 * sectAngle)
+              ) * ppcm,
+              yCon(
+                currentY1 + disp * Math.cos(currentAngle1 + 0.5 * sectAngle)
+              ) * ppcm
+            );
+          }
+          ctx.stroke();
+          // n = 2
+          ctx.beginPath();
+          ctx.moveTo(xCon(0) * ppcm, yCon(-orbits.r2) * ppcm);
+          let currentAngle2 = 0;
+          let currentX2 = 0;
+          let currentY2 = -orbits.r2;
+          for (let i = 0; i < this.detail; i++) {
+            currentAngle2 = currentAngle2 + sectAngle;
+            currentX2 = currentX2 + this.n2SectL * Math.cos(currentAngle2);
+            currentY2 = currentY2 + this.n2SectL * Math.sin(currentAngle2);
+            let disp =
+              2 *
+              this.amplitude *
+              Math.sin(this.k2 * this.n2SectL * i) *
+              Math.cos(this.omega * currentTime);
+            ctx.lineTo(
+              xCon(
+                currentX2 - disp * Math.sin(currentAngle2 + 0.5 * sectAngle)
+              ) * ppcm,
+              yCon(
+                currentY2 + disp * Math.cos(currentAngle2 + 0.5 * sectAngle)
+              ) * ppcm
+            );
+          }
+          ctx.stroke();
+          // n = 3
+          ctx.beginPath();
+          ctx.moveTo(xCon(0) * ppcm, yCon(-orbits.r3) * ppcm);
+          let currentAngle3 = 0;
+          let currentX3 = 0;
+          let currentY3 = -orbits.r3;
+          for (let i = 0; i < this.detail; i++) {
+            currentAngle3 = currentAngle3 + sectAngle;
+            currentX3 = currentX3 + this.n3SectL * Math.cos(currentAngle3);
+            currentY3 = currentY3 + this.n3SectL * Math.sin(currentAngle3);
+            let disp =
+              2 *
+              this.amplitude *
+              Math.sin(this.k3 * this.n3SectL * i) *
+              Math.cos(this.omega * currentTime);
+            ctx.lineTo(
+              xCon(
+                currentX3 - disp * Math.sin(currentAngle3 + 0.5 * sectAngle)
+              ) * ppcm,
+              yCon(
+                currentY3 + disp * Math.cos(currentAngle3 + 0.5 * sectAngle)
+              ) * ppcm
+            );
+          }
+          ctx.stroke();
+        }
+
+        update() {
+          // draw
+          this.draw();
+        }
+      }
+
+      // class instanciation
+      const orbits = new Orbits();
+      const electron = new Electron();
+
+      // events
+
+      // animation loop
+      function animFrame() {
+        requestAnimationFrame(animFrame);
+        onEachStep();
+      }
+
+      function init() {
+        animFrame();
+      }
+
+      window.onload = init;
+
+      function onEachStep() {
+        // time
+        currentTime = Date.now() / 1000;
+        elapseTime = currentTime - startTime;
+        deltaTime = currentTime - prevTime;
+        prevTime = currentTime;
+        // set a hard limit for dt in case of stuttering or tab switching
+        if (deltaTime > 0.02) {
+          deltaTime = 1 / 60;
+        }
+
+        // clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        updateAnimation();
+
+        // draw functions
+        orbits.draw();
+        electron.update();
+        drawProton();
+        drawText();
+      }
+
+      function map01ToHex(value) {
+        // Ensure the value is within the 0-1 range
+        if (value < 0) value = 0;
+        if (value > 1) value = 1;
+
+        // Scale to 0-255 and round
+        const scaledValue = Math.round(value * 255);
+
+        // Convert to hexadecimal string
+        let hex = scaledValue.toString(16);
+
+        // Pad with a leading zero if necessary
+        if (hex.length === 1) {
+          hex = "0" + hex;
+        }
+
+        return hex;
+      }
+    </script>
+  </body>
+</html>

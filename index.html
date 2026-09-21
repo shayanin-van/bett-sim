@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STEM Simulations</title>
+    <meta
+      name="description"
+      content="A sample of the interactive STEM simulations we build for the classroom."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --surface: #141d2e;
+        --surface-hi: #1b2740;
+        --line: #26324a;
+        --text: #e8eef8;
+        --muted: #94a5bd;
+        --accent: #4aa8e0;
+        --radius: 14px;
+        --display: "Mitr", system-ui, sans-serif;
+        --body: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--body);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      header {
+        padding: 64px 0 34px;
+        background: radial-gradient(120% 100% at 50% 0%, #16243c 0%, var(--bg) 60%);
+      }
+
+      h1 {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: clamp(2.1rem, 5.5vw, 3.2rem);
+        line-height: 1.15;
+        margin: 0 0 14px;
+      }
+
+      .lede {
+        font-size: clamp(1rem, 2.2vw, 1.12rem);
+        color: var(--muted);
+        max-width: 52ch;
+        margin: 0;
+      }
+
+      main.wrap {
+        /* .wrap sets padding, so this needs the class to win */
+        padding-bottom: 72px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 20px;
+      }
+
+      /* ---------- cards ---------- */
+      .card {
+        display: flex;
+        font: inherit;
+        text-align: left;
+        padding: 0;
+        width: 100%;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        flex-direction: column;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+        background: var(--surface-hi);
+        outline: none;
+      }
+
+      .card:focus-visible {
+        box-shadow: 0 0 0 3px rgba(74, 168, 224, 0.35);
+      }
+
+      .thumb {
+        position: relative;
+        display: block;
+        aspect-ratio: 16 / 10;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .play {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        background: rgba(11, 18, 32, 0.45);
+        transition: opacity 0.18s ease;
+      }
+
+      .play span {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #06121f;
+        display: grid;
+        place-items: center;
+        font-size: 1.1rem;
+        padding-left: 4px;
+      }
+
+      .card:hover .play,
+      .card:focus-visible .play {
+        opacity: 1;
+      }
+
+      .body {
+        display: block;
+        padding: 14px 17px 16px;
+      }
+
+      .title {
+        display: block;
+        font-family: var(--display);
+        font-weight: 500;
+        font-size: 1.02rem;
+        margin-bottom: 3px;
+      }
+
+      .desc {
+        display: block;
+        color: var(--muted);
+        font-size: 0.89rem;
+      }
+
+      /* ---------- simulation panel ---------- */
+      .player {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 4.5vmin, 56px);
+        background: rgba(5, 9, 17, 0.72);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        animation: backdrop-in 0.16s ease-out;
+      }
+
+      .player[hidden] {
+        display: none;
+      }
+
+      .player-panel {
+        display: flex;
+        flex-direction: column;
+        width: min(100%, 1500px);
+        height: 100%;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+        animation: panel-in 0.2s ease-out;
+      }
+
+      @keyframes backdrop-in {
+        from {
+          opacity: 0;
+        }
+      }
+
+      @keyframes panel-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px) scale(0.985);
+        }
+      }
+
+      .player-bar {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 16px;
+        padding: 8px 12px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .player-bar .name {
+        font-family: var(--display);
+        font-size: 0.95rem;
+        margin-right: auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .player-bar button {
+        font: inherit;
+        font-size: 0.86rem;
+        color: var(--muted);
+        background: none;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 5px 12px;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .player-bar button:hover {
+        color: var(--text);
+        border-color: var(--accent);
+      }
+
+      .player iframe {
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+        border: 0;
+        background: #fff;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>STEM Simulations</h1>
+        <p class="lede">
+          A sample of the simulations we build for the classroom.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="grid">
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/dc-motor/dist/#bett">
+          <span class="thumb">
+            <img src="showcase/dc-motor.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">DC Motor</span>
+            <span class="desc">Show the right hands, the force on the coil, the field.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/mirror-and-lens/">
+          <span class="thumb">
+            <img src="showcase/mirror-and-lens.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Mirrors &amp; Lenses</span>
+            <span class="desc">Chain mirrors and lenses; the ray diagram follows.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/motion-graphs/dist/">
+          <span class="thumb">
+            <img src="showcase/motion-graphs.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">1D Motion Graphs</span>
+            <span class="desc">Adjust the graph and the UFO moves to match.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/wave-interference/">
+          <span class="thumb">
+            <img src="showcase/wave-interference.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Wave Interference</span>
+            <span class="desc">Set two waves and watch them add and cancel.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/shm-and-circular/dist/#bett">
+          <span class="thumb">
+            <img src="showcase/shm-and-circular.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">SHM &amp; Circular Motion</span>
+            <span class="desc">Circular motion and an oscillation, kept in step.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/natural-frequency/">
+          <span class="thumb">
+            <img src="showcase/natural-frequency.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Natural Frequency &amp; Resonance</span>
+            <span class="desc">Tune the spring, drive it with wind, find resonance.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/right-hand-rule-straight-wire/dist/">
+          <span class="thumb">
+            <img src="showcase/rhr-straight.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Right-Hand Rule &mdash; Straight Wire</span>
+            <span class="desc">Flip the current, see which way the field turns around the wire.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/newton-cannon-on-kai-planet/dist/">
+          <span class="thumb">
+            <img src="showcase/newton-cannonball.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Newton&rsquo;s Cannonball</span>
+            <span class="desc">Fire the cannon over a planet small enough to see the curve.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/light-refrac-2/">
+          <span class="thumb">
+            <img src="showcase/light-refrac-2.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Refraction &mdash; Air to Glass</span>
+            <span class="desc">Drag the laser and watch the beam bend at the boundary.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/deBroglie-model/">
+          <span class="thumb">
+            <img src="showcase/deBroglie-model.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">de Broglie Standing Waves</span>
+            <span class="desc">Curl a wave until whole wavelengths close the ring.</span>
+          </span>
+        </button>
+
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/right-hand-rule-circular-wire/dist/">
+          <span class="thumb">
+            <img src="showcase/rhr-circular.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Right-Hand Rule &mdash; Circular Wire</span>
+            <span class="desc">Flip the current, see which way the field points through the loop.</span>
+          </span>
+        </button>
+        <button class="card" type="button" data-sim="https://shayanin-van.github.io/bett-sim/laser-double-slit/">
+          <span class="thumb">
+            <img src="showcase/laser-double-slit.webp" alt="" loading="lazy" width="960" height="600" />
+            <span class="play"><span>&#9654;</span></span>
+          </span>
+          <span class="body">
+            <span class="title">Laser &amp; Double Slit</span>
+            <span class="desc">Move the slits and the screen; the fringes respond.</span>
+          </span>
+        </button>
+      </div>
+    </main>
+
+    <div class="player" id="player" hidden>
+      <div class="player-panel" role="dialog" aria-modal="true" aria-label="Simulation">
+        <div class="player-bar">
+          <span class="name" id="player-name"></span>
+          <button type="button" id="player-close">Close &#10005;</button>
+        </div>
+        <iframe id="player-frame" title="Simulation" allow="fullscreen; xr-spatial-tracking"></iframe>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var player = document.getElementById("player");
+        var frame = document.getElementById("player-frame");
+        var name = document.getElementById("player-name");
+        var closeBtn = document.getElementById("player-close");
+        var lastFocus = null;
+
+        function openSim(src, label) {
+          lastFocus = document.activeElement;
+          name.textContent = label;
+          frame.title = label;
+          frame.src = src;
+          player.hidden = false;
+          document.body.style.overflow = "hidden";
+          closeBtn.focus();
+        }
+
+        function closeSim() {
+          player.hidden = true;
+          frame.removeAttribute("src"); // stop the simulation rendering
+          document.body.style.overflow = "";
+          if (lastFocus) lastFocus.focus();
+        }
+
+        document.querySelectorAll("[data-sim]").forEach(function (card) {
+          card.addEventListener("click", function () {
+            openSim(card.dataset.sim, card.querySelector(".title").textContent);
+          });
+        });
+
+        closeBtn.addEventListener("click", closeSim);
+        player.addEventListener("click", function (e) {
+          if (e.target === player) closeSim(); // the dimmed area around the panel
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !player.hidden) closeSim();
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #212121;
+}
+
+/* fixed 1200x700 stage, scaled by fitStage() to fill the viewport */
+.SimBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1200px;
+    height: 700px;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+}
+
+#canvas, .overlay, #canvasTop {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#canvas {
+    touch-action: none;
+    z-index: 1;
+}
+
+.overlay {
+    pointer-events: none;
+    z-index: 2;
+}
+
+#canvasTop {
+    touch-action: none;
+    z-index: 3;
+}
+
+.addDeviceButton,
+.removeDeviceButton,
+.previousButton,
+.nextButton,
+.showCalculation {
+    position: absolute;
+    z-index: 4;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.addDeviceButton {
+    left: 278px;
+    top: 649px;
+}
+
+.removeDeviceButton {
+    left: 324px;
+    top: 649px;
+}
+
+.previousButton {
+    left: 460px;
+    top: 643px;
+}
+
+.nextButton {
+    left: 710px;
+    top: 643px;
+}
+
+.showCalculation {
+    left: 990px;
+    top: 31px;
+}
+
+input[type=range] {
+    accent-color: rgb(116, 116, 116);
+}
+
+#addDeviceButton {
+    background-color: #2ebe8a;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 8px;
+    font-family: Material Icons;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+#removeDeviceButton {
+    background-color: #e96464;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 8px;
+    font-family: Material Icons;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+#previousButton {
+    background-color: #a1be2e00;
+    border-color: #a1be2e00;
+    color: #323232;
+    width: 32px;
+    height: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    border-radius: 8px;
+    font-family: Material Icons;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+#previousButton:hover {
+    color: #0e71ab;
+}
+#previousButton:active {
+    color: #a5a5a5;
+}
+
+#nextButton {
+    background-color: #a1be2e00;
+    border-color: #a1be2e00;
+    color: #323232;
+    width: 32px;
+    height: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    border-radius: 8px;
+    font-family: Material Icons;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+#nextButton:hover {
+    color: #0e71ab;
+}
+#nextButton:active {
+    color: #a5a5a5;
+}
+
+#showCalculation {
+    background-color: #ffffff94;
+    border-color: #a1be2e00;
+    color: #323232;
+    width: 180px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 8px;
+    font-family: Mitr, Material Icons;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#showCalculation:hover {
+    background-color: #ffffffe1;
+}
+#showCalculation:active {
+    background-color: #ffffffe1;
+}

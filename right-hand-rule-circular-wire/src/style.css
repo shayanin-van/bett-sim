@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+#control {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 7rem;
+  justify-content: center;
+}
+
+button {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  aspect-ratio: 1;
+  font-family: "Mitr", sans-serif;
+  font-size: 3rem;
+  border-radius: 20px;
+  border: 0px;
+  color: rgba(63, 63, 63, 0.5);
+  background-color: rgba(83, 83, 83, 0.5);
+  touch-action: none;
+  user-select: none;
+  text-align: center;
+}
+button:hover {
+  background-color: rgba(113, 113, 113, 0.71);
+}
+
+.note {
+  position: absolute;
+  color: #6b6b6b;
+  text-align: left;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  font-size: 1rem;
+  font-family: Mitr, sans-serif;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}

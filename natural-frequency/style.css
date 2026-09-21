@@ -1,0 +1,109 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #212121;
+}
+
+/* fixed 1000x700 stage, scaled by fitStage() to fill the viewport */
+.SimBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1000px;
+    height: 700px;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+}
+
+#canvas, .overlay, #canvasTop {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#canvas {
+    touch-action: none;
+    z-index: 1;
+}
+
+.overlay {
+    pointer-events: none;
+    z-index: 2;
+}
+
+#canvasTop {
+    touch-action: none;
+    z-index: 3;
+}
+
+.kSlider, .mSlider, .fSlider, .onoffswitch {
+    position: absolute;
+    z-index: 4;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.kSlider {
+    left: 160px;
+    top: 592px;
+}
+
+.mSlider {
+    left: 160px;
+    top: 629px;
+}
+
+.fSlider {
+    left: 828px;
+    top: 458px;
+}
+
+.onoffswitch {
+    left: 849px;
+    top: 373px;
+    width: 30px;
+}
+
+.kSlider input[type=range],
+.mSlider input[type=range] {
+    width: 100px;
+}
+
+.onoffswitch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 16px; padding: 0; line-height: 16px;
+    border: 2px solid #8a8a8a; border-radius: 16px;
+    background-color: #5c5c5c;
+    transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 16px; margin: 0px;
+    background: #a3a3a3;
+    position: absolute; top: 0; bottom: 0;
+    right: 12px;
+    border: 2px solid #8a8a8a; border-radius: 16px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #119311;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #8a8a8a;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
+}
+
+input[type=range] {
+    accent-color: rgb(116, 116, 116);
+    width: 129px;
+}

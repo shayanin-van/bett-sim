@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Right-Hand Rule: Straight Wire</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Mitr"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/index-aLWmxtVP.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index--_yr7aj9.css">
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <div id="control">
+      <button id="onoff" onclick="onoffClick()">on</button>
+      <button id="dir" onclick="dirClick()">↓</button>
+    </div>
+    <script>
+      var isOn = false;
+      var isDown = true;
+      const onoffClick = () => {
+        isOn = !isOn;
+        if (isOn) {
+          document.getElementById("onoff").style.color = "rgb(128, 196, 255)";
+          document.getElementById("dir").style.color = "rgb(128, 196, 255)";
+        } else {
+          document.getElementById("onoff").style.color =
+            "rgba(63, 63, 63, 0.5)";
+          document.getElementById("dir").style.color = "rgba(63, 63, 63, 0.5)";
+        }
+      };
+      const dirClick = () => {
+        isDown = !isDown;
+        if (isDown) {
+          document.getElementById("dir").innerText = "↓";
+        } else {
+          document.getElementById("dir").innerText = "↑";
+        }
+      };
+
+      // initialize on current
+      onoffClick();
+    </script>
+    <div class="note">
+      <p>Try rotating the view</p>
+    </div>
+  </body>
+</html>
