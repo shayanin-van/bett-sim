@@ -4,8 +4,27 @@
     {
       "name": "bett-sim",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "serve", "-l", "5177", "."],
+      "runtimeArgs": [
+        "-y",
+        "serve",
+        "-l",
+        "5177",
+        "."
+      ],
       "port": 5177
+    },
+    {
+      "name": "bett-sim-subpath",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "-y",
+        "serve",
+        "-l",
+        "5178",
+        ".."
+      ],
+      "port": 5178,
+      "url": "http://localhost:5178"
     }
   ]
 }
