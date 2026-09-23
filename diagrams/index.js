@@ -7,7 +7,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Union: A ∪ B",
-    "description": "All elements in A, B, or both are shaded — representing the union of two sets.",
+    "summary": "Draws a two-set Venn diagram inside a rectangular universal-set frame, with every region labelled and shaded independently.",
     "name": "create_2sets_venn_diagram",
     "params": {
       "setALabel": "A",
@@ -38,7 +38,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Single 3D vector with component lines",
-    "description": "A single vector drawn from the origin with component projection lines. The floor shadow and vertical drop help readers see exactly where the tip sits in 3D space. Good minimal example to introduce the tool.",
+    "summary": "Draws vectors and points in a 3D Cartesian coordinate system using oblique (cabinet) projection. Axes orientation: Y points right, Z points up, X points into the lower-left…",
     "name": "create_3d_cartesian_vectors_diagram",
     "params": {
       "vectors": [
@@ -59,7 +59,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Intersection of All Three: A ∩ B ∩ C",
-    "description": "Only the central region where all three sets overlap is shaded.",
+    "summary": "Draws a three-set Venn diagram inside a rectangular universal-set frame, with every region independently labelled and shaded.",
     "name": "create_3sets_venn_diagram",
     "params": {
       "setALabel": "A",
@@ -107,12 +107,12 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Two Classes Comparison",
-    "description": "Comparing score distributions between two school classes (6/1 and 6/2). Class 6/2 is more right-skewed with a higher median, illustrating how box plots reveal differences in spread and central tendency.",
+    "summary": "Creates a horizontal box plot showing the five-number summary for 1–4 data series on a shared x-axis.",
     "name": "create_box_plot_diagram",
     "params": {
       "series": [
         {
-          "label": "ม.6/1",
+          "label": "Class 6/1",
           "min": 60,
           "q1": 65,
           "median": 75,
@@ -120,7 +120,7 @@ window.DIAGRAM_INDEX = [
           "max": 95
         },
         {
-          "label": "ม.6/2",
+          "label": "Class 6/2",
           "min": 64,
           "q1": 77,
           "median": 85,
@@ -128,7 +128,7 @@ window.DIAGRAM_INDEX = [
           "max": 98
         }
       ],
-      "axisLabel": "คะแนน",
+      "axisLabel": "Score",
       "showValueLabels": true
     }
   },
@@ -139,7 +139,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "All features — three-piece function with corners, tangents, area, and isolated point",
-    "description": "f(x) = x² for x ≤ 0, √x for 0 < x ≤ 4, −x+6 for x > 4, with f(4) = 5 defined as an isolated point. The first two pieces join continuously at x = 0. At x = 4 both one-sided limits equal 2 but f(4) = 5, so the function is discontinuous there despite the limits agreeing. Tangents at x = −1 (on the parabola) and x = 1 (on the square-root piece) show derivative values at corners. The shaded area annotates ∫₀⁴ √x dx.",
+    "summary": "Draws algebraic function curves on a coordinate plane for high-school calculus problems covering limits, derivatives, and integrals.",
     "name": "create_calculus_function_graph",
     "params": {
       "axisLimits": {
@@ -209,7 +209,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Geometry — midpoint via position vectors",
-    "description": "Points A(1, 4) and B(5, 2) have position vectors OA and OB. The midpoint M has position vector OM = ½(OA + OB) = (3, 3). All three position vectors are shown alongside AM and MB to confirm M bisects AB. Suitable for problems that ask students to derive the midpoint formula using vectors.",
+    "summary": "Draws one or more vectors on a Cartesian coordinate plane (x–y axes). Each vector is defined by its x-component (iCoeff), y-component (jCoeff), and optional tail position (xOrigin, yOrigin — defaults to origin)…",
     "name": "create_cartesian_vectors_diagram",
     "params": {
       "vectors": [
@@ -274,7 +274,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Exponential: y = 2^(x−1) − 2",
-    "description": "y = 2^x shifted right 1 unit (c = 1) and down 2 units (d = −2). The horizontal asymptote moves to y = −2. Zero-crossing at x = 2 where 2^(2−1) − 2 = 0.",
+    "summary": "Draws the graph of a single common mathematical function on a coordinate plane. One tool call = one function curve. Supports: exponential, logarithm, sine, cosine, tangent, secant, cosecant, cotangent, arcsine, arccosine, arctangent, absolute value, and…",
     "name": "create_common_function_graph",
     "params": {
       "functionType": "exponential",
@@ -313,7 +313,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Polar form — vector, modulus, and argument arc",
-    "description": "Shows z = −1 + √3·i with a vector from the origin, the modulus label |z| = 2, and the argument arc (principal convention, Q2). Typical for introducing polar form r(cosθ + i sinθ).",
+    "summary": "Draws one or more complex numbers on a complex plane (Argand diagram). The horizontal axis is the real axis Re(z) and the vertical axis is the imaginary axis Im(z)…",
     "name": "create_complex_plane_diagram",
     "params": {
       "points": [
@@ -337,7 +337,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Circle: x² + y² = 25",
-    "description": "A circle centred at the origin with radius 5. The equation in standard form is x² + y² − 25 = 0.",
+    "summary": "Plots conic sections and analytic-geometry elements together on a labelled coordinate grid.",
     "name": "create_conic_section_and_analytic_geo",
     "params": {
       "conicSections": [
@@ -371,7 +371,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "Triangle from three sides (SSS) + median, with thought & assert",
-    "description": "Triangle ABC with AB=5, BC=7, CA=6, drawn from the side lengths via triangleApex (no hand-computed coordinates). Shows per-step thoughts, a shaded body (role 'region'), and an assert gate re-checking AB, CA and that M is the midpoint of BC.",
+    "summary": "Creates accurate 2D geometry diagrams from a declarative JSON spec. You describe *relationships* between geometric objects — the engine computes exact coordinates with closed-form constructions (no approximation, no iteration)…",
     "name": "create_geometry_diagram",
     "params": {
       "thought": "SSS: base BC on the x-axis (B=origin, C=[7,0] since BC=7). Apex A pinned by AB=5, CA=6 -> triangleApex. M=midpoint BC; draw median AM; tick BM=MC.",
@@ -504,7 +504,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "N(50, 10²) — 68% Rule with Numeric Ticks",
-    "description": "Normal distribution μ=50, σ=10. The region within one standard deviation (40 to 60) is shaded, illustrating the 68.27% empirical rule. Numeric tick labels show actual score values.",
+    "summary": "Draws a normal (Gaussian) bell curve for statistics problems involving normal distributions and z-scores.",
     "name": "create_normal_distribution_diagram",
     "params": {
       "mean": 50,
@@ -516,7 +516,7 @@ window.DIAGRAM_INDEX = [
           "label": "$68.27\\%$"
         }
       ],
-      "xAxisLabel": "คะแนน",
+      "xAxisLabel": "Score",
       "tickStyle": "numeric"
     }
   },
@@ -527,7 +527,7 @@ window.DIAGRAM_INDEX = [
     "group": "math",
     "groupLabel": "Mathematics",
     "title": "(x + 3)(x + 1)(x − 2)² / (x − 4) ≤ 0",
-    "description": "The full method on a four-root rational inequality: simple numerator roots at x = −3 and x = −1, a repeated root at x = 2 (multiplicity 2, so the sign does NOT change there), and a denominator root at x = 4 written as multiplicity −1. The sign still flips across x = 4 because the multiplicity is odd, but the point itself is excluded — note the hollow marker at x = 4 against the solid markers at the other three. The five intervals read − + − − + from the left, giving a two-piece solution: x ≤ −3 or −1 ≤ x < 4.",
+    "summary": "Create a number line plot for solving inequalities of the form (x - a_1)^n_1 * (x - a_2)^n_2 * ... * (x - a_k)^n_k [sign of inequality] 0, where a_i are the roots of the inequality and n_i are their respective multiplicities…",
     "name": "create_number_line_for_poly_inequalities",
     "params": {
       "roots": [
@@ -559,7 +559,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Block at Rest (Free-Body Diagram)",
-    "description": "A block sitting on a surface with only weight and normal force shown.",
+    "summary": "Draws a single block resting on horizontal ground, with its free-body forces.",
     "name": "create_block_on_ground_diagram",
     "params": {
       "block": {
@@ -590,7 +590,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Block with All Forces Shown",
-    "description": "A force F pushes the block at the top. Weight, normal force, and friction are all labelled.",
+    "summary": "Draws a block on rough ground pushed horizontally, for the slide-versus-topple analysis.",
     "name": "create_block_slide_or_topple_diagram",
     "params": {
       "block": {
@@ -628,7 +628,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Two Blocks Connected by a String",
-    "description": "Two blocks on a surface pulled by an external force F. The tension T in the connecting string is shown.",
+    "summary": "Draws two or more blocks connected by ropes on horizontal ground, with the forces acting on each.",
     "name": "create_blocks_tied_on_ground_diagram",
     "params": {
       "blocks": [
@@ -684,7 +684,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Ball on Circular Track (Normal)",
-    "description": "A ball moving along a smooth circular track. Object is at 45° from the vertical. Weight is decomposed into tangential (causes speed change) and radial (acts with/against normal force) components. Velocity (blue) and centripetal acceleration (green) are also drawn.",
+    "summary": "Draws an object on a circular or arc path with its forces, velocity and acceleration vectors.",
     "name": "create_circular_motion_diagram",
     "params": {
       "mode": "normal",
@@ -730,7 +730,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Tension Components — θ = 45°",
-    "description": "Full force analysis at θ = 45°. Tension T is decomposed (red) into: T·cosθ (vertical, upward — balances weight mg) and T·sinθ (horizontal, toward axis — provides centripetal force). The dashed parallelogram shows the vector decomposition. This diagram directly illustrates both equilibrium equations simultaneously.",
+    "summary": "Creates a physics diagram for a conical pendulum (conical circular motion). A mass on a string of length L is attached to a fixed pivot. The string makes angle θ with the vertical axis…",
     "name": "create_conical_circular_motion_diagram",
     "params": {
       "angle": 45,
@@ -755,7 +755,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Constant Velocity — True Weight",
-    "description": "Elevator moving at constant velocity (zero acceleration). Normal force equals weight, so the scale reads the person's true weight. A clean starting point for students before introducing acceleration.",
+    "summary": "Creates a physics diagram of a person standing on a weighing scale inside an elevator car, for Newton's second law problems.",
     "name": "create_elevator_scale_diagram",
     "params": {
       "person": {
@@ -783,7 +783,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Two States: Before and After Falling",
-    "description": "A 2 kg object at 10 m height (state A) with full potential energy, versus at ground level (state B) with full kinetic energy.",
+    "summary": "Creates a vertical physics diagram showing a freefalling object at 1–3 states (positions). Each state shows the object as a ball at its proportional height above the ground, with potential energy and kinetic energy labels, an optional velocity arrow, and a…",
     "name": "create_energy_in_free_fall_diagram",
     "params": {
       "massLabel": "$m = 2$ kg",
@@ -822,7 +822,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Horizontal Spring — Two States",
-    "description": "A mass on a horizontal spring. At maximum displacement A all energy is potential; at equilibrium all energy is kinetic.",
+    "summary": "Creates a physics diagram showing the energy of a mass attached to a spring at 1–3 states (positions). Supports 'horizontal' (mass slides on ground, spring attached to wall on left) and 'vertical' (mass hangs from spring attached to ceiling)…",
     "name": "create_spring_energy_diagram",
     "params": {
       "orientation": "horizontal",
@@ -875,7 +875,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Block Sliding Down a Smooth Slope",
-    "description": "A block starts at rest at the top (state A) and slides to the bottom (state B) on a smooth 30° incline.",
+    "summary": "Creates a physics diagram showing the energy of a block on an inclined plane at 1–3 states (positions along the slope). Each state shows the block at its proportional position on the slope with potential and kinetic energy labels…",
     "name": "create_energy_on_inclined_plane_diagram",
     "params": {
       "inclineAngle": 30,
@@ -938,7 +938,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Simple Inclined Plane (No Forces)",
-    "description": "A block resting on a smooth 30° slope. No force diagram is shown — just the geometry.",
+    "summary": "Draws a block resting on an inclined plane together with the forces acting on it.",
     "name": "create_inclined_plane_diagram",
     "params": {
       "angle": 30,
@@ -962,7 +962,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Ladder with Normal Forces Only",
-    "description": "A 5 m ladder leaning at 60° against a smooth wall (no wall friction), with its weight acting at the midpoint — 2.5 m along the ladder from the base.",
+    "summary": "Draws a ladder or beam leaning against a vertical wall on the left, with the contact forces at both of its ends.",
     "name": "create_ladder_lean_against_wall_diagram",
     "params": {
       "beam": {
@@ -1005,7 +1005,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Oblique Force Resolved into Components",
-    "description": "The tool's full feature set in one diagram: a 4 m beam on a fulcrum 1 m from the left, loaded by F₁ at the left end and its own weight W at the midpoint, with F applied obliquely at the right end. F is struck through and replaced by its red components — only the perpendicular one, F cos 50°, contributes a moment about the fulcrum, while F sin 50° acts along the beam and contributes none. The orange arc on F₁ shows the anticlockwise turn it tends to produce. Note the tilt is measured from the VERTICAL, so a 50° tilt gives cos for the perpendicular component and sin for the along-beam one.",
+    "summary": "Draws a beam on a pivot with the forces acting on it and their distances, for moment and equilibrium problems.",
     "name": "create_lever_and_beam_diagram",
     "params": {
       "beamLength": 4,
@@ -1059,13 +1059,13 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Elastic Collision — Equal Masses",
-    "description": "A classic head-on elastic collision: m₁ moves right at 5 m/s and hits stationary m₂. After collision m₁ stops and m₂ moves at 5 m/s.",
+    "summary": "Creates a physics diagram illustrating 1D momentum conservation with two side-by-side snapshots (e.g. before and after a collision). Each snapshot shows two masses on a frictionless horizontal surface with horizontal velocity arrows…",
     "name": "create_momentum_conservation_1d_diagram",
     "params": {
       "objectType": "block",
       "states": [
         {
-          "label": "ก่อนชน",
+          "label": "Before collision",
           "objects": [
             {
               "massLabel": "$m$",
@@ -1082,7 +1082,7 @@ window.DIAGRAM_INDEX = [
           ]
         },
         {
-          "label": "หลังชน",
+          "label": "After collision",
           "objects": [
             {
               "massLabel": "$m$",
@@ -1108,7 +1108,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Fixed Pulley — Direction Change Only (MA = 1)",
-    "description": "A single fixed pulley mounted to the ceiling. The pulley only changes the rope direction — both sides carry the same tension T = W, so the applied force equals the weight (MA = 1). Tension labels are shown on both rope segments. Use this configuration when the problem asks about a pulley that redirects force without multiplying it.",
+    "summary": "Creates a static physics diagram of a pulley system with a single hanging mass and a single applied force.",
     "name": "create_pulley_system_diagram",
     "params": {
       "configuration": "fixed",
@@ -1128,7 +1128,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Pendulum at Maximum Displacement",
-    "description": "Bob at the right turning point (swingAngle = 20°). Velocity is zero here; the full weight mg acts downward. The restoring force (mg sinθ, black arrow) is at its maximum and directed tangentially back toward equilibrium. The dashed arc shows the complete ±20° swing path.",
+    "summary": "Creates a physics diagram for a simple pendulum in simple harmonic motion (SHM).",
     "name": "create_simple_pendulum_diagram",
     "params": {
       "swingAngle": 20,
@@ -1159,7 +1159,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Horizontal Spring — UCM Companion Circle",
-    "description": "Mass at φ = 60° with the circular-motion companion enabled. The rotating point on the reference circle projects vertically onto the spring axis, illustrating x = A·sin(φ). The phase angle arc is labelled φ.",
+    "summary": "Creates a physics diagram showing a spring-mass system in simple harmonic motion (SHM) at a specific phase. Supports two configurations: horizontal spring-mass and vertical spring-mass…",
     "name": "create_spring_shm_diagram",
     "params": {
       "configuration": "horizontal_spring",
@@ -1194,7 +1194,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Series then Parallel (Mixed Configuration)",
-    "description": "Spring k₁ in series with a parallel pair k₂ ∥ k₃. This is the most common mixed configuration in textbook problems.",
+    "summary": "Creates a horizontal spring–mass system diagram. A wall is on the left; the mass block sits on a ground surface on the right. Between them is a network of springs that can be in series, in parallel, or any mix of both…",
     "name": "create_springs_configuration_diagram",
     "params": {
       "stages": [
@@ -1227,7 +1227,7 @@ window.DIAGRAM_INDEX = [
     "group": "mechanics",
     "groupLabel": "Mechanics",
     "title": "Symmetric Strings at Equal Angles",
-    "description": "A weight suspended by two strings at equal 45° angles. The tensions are equal by symmetry.",
+    "summary": "Creates a static equilibrium diagram of a mass hanging from two strings tied to a ceiling. The strings meet at a central junction where the mass hangs…",
     "name": "create_three_strings_equilibrium_diagram",
     "params": {
       "leftString": {
@@ -1260,7 +1260,7 @@ window.DIAGRAM_INDEX = [
     "group": "kinematics",
     "groupLabel": "Kinematics & Motion",
     "title": "Back-and-Forth Motion on a Line",
-    "description": "An object starts at A, moves to B, then returns to C. The diagram shows distances and displacement.",
+    "summary": "Draws the path an object travels as straight segments joining a list of coordinates.",
     "name": "create_motion_path_diagram",
     "params": {
       "points": [
@@ -1291,7 +1291,7 @@ window.DIAGRAM_INDEX = [
     "group": "kinematics",
     "groupLabel": "Kinematics & Motion",
     "title": "Launch at 45°",
-    "description": "Classic projectile motion at 45°, which gives the maximum horizontal range.",
+    "summary": "Draws a projectile's parabolic trajectory from its launch point, with the initial velocity vector and optional component decomposition.",
     "name": "create_projectile_motion_diagram",
     "params": {
       "g": 10,
@@ -1319,7 +1319,7 @@ window.DIAGRAM_INDEX = [
     "group": "kinematics",
     "groupLabel": "Kinematics & Motion",
     "title": "Car Accelerating Horizontally",
-    "description": "A car starting at 10 m/s with acceleration 2 m/s². Shows velocity, acceleration, and displacement arrows.",
+    "summary": "Draws an object moving along a straight line with constant acceleration, annotated with its velocity, acceleration and displacement.",
     "name": "create_rectilinear_motion_diagram",
     "params": {
       "u": 10,
@@ -1339,7 +1339,7 @@ window.DIAGRAM_INDEX = [
     "group": "kinematics",
     "groupLabel": "Kinematics & Motion",
     "title": "Uniform Motion Tape",
-    "description": "Four dots with equal spacing — represents an object moving at constant velocity. All gaps are identical, so spacing is uniform across the tape.",
+    "summary": "Draws a ticker timer tape — a horizontal paper strip with dots punched at regular time intervals, used in kinematics experiments to study motion.",
     "name": "create_ticker_timer_tape_diagram",
     "params": {
       "dots": [
@@ -1381,7 +1381,7 @@ window.DIAGRAM_INDEX = [
     "group": "gls",
     "groupLabel": "Gas, Liquid and Solid",
     "title": "Floating block — partial submersion with depth annotations",
-    "description": "A block floating half-submerged in water (submergedFraction 0.5). Both weight and buoyant force arrows are shown. Submerged depth (h₁) and above-water height (h₂) annotation brackets are drawn on the right side. Liquid is labelled with plain text.",
+    "summary": "Creates a physics diagram showing a block submerged (partially or fully) in a liquid, illustrating buoyant force (Archimedes' principle).",
     "name": "create_buoyancy_diagram",
     "params": {
       "block": {
@@ -1389,7 +1389,7 @@ window.DIAGRAM_INDEX = [
         "submersion": "partial",
         "submergedFraction": 0.5
       },
-      "liquid": "น้ำ",
+      "liquid": "Water",
       "forces": {
         "weight": {
           "show": true,
@@ -1422,7 +1422,7 @@ window.DIAGRAM_INDEX = [
     "group": "gls",
     "groupLabel": "Gas, Liquid and Solid",
     "title": "Full Bernoulli — Height and Area Change",
-    "description": "Fluid flows from a wide low-pressure inlet (at the reference level, h₁ = 0) up to a narrower high-pressure outlet at height H. All four annotation types are shown: pressure (below the station dot), velocity (on the flow arrow), cross-section bracket, and height bracket from the reference line. The dashed reference line at h = 0 anchors the height measurements.",
+    "summary": "Creates a physics diagram for fluid flow in a tube (pipe), illustrating Bernoulli's principle and the continuity equation ($A_1v_1 = A_2v_2$).",
     "name": "create_fluid_flow_tube_diagram",
     "params": {
       "inlet": {
@@ -1482,7 +1482,7 @@ window.DIAGRAM_INDEX = [
     "group": "gls",
     "groupLabel": "Gas, Liquid and Solid",
     "title": "Single Hole — Torricelli's Theorem",
-    "description": "A water tank with one hole in the side wall. Shows the exit velocity label, the depth from the water surface (h), and the total water height (H). Atmospheric pressure is labelled at the open top. The parabolic jet trajectory lands on the ground.",
+    "summary": "Creates a physics diagram of a water tank/bucket with one or more holes in its side wall, illustrating Torricelli's theorem and Bernoulli's principle.",
     "name": "create_holes_in_bucket_diagram",
     "params": {
       "waterLevel": 1,
@@ -1495,7 +1495,7 @@ window.DIAGRAM_INDEX = [
         "label": "$P_0$"
       },
       "fluid": {
-        "label": "น้ำ",
+        "label": "Water",
         "color": "lightblue"
       },
       "showGround": true,
@@ -1527,7 +1527,7 @@ window.DIAGRAM_INDEX = [
     "group": "gls",
     "groupLabel": "Gas, Liquid and Solid",
     "title": "Standard vertical mercury barometer",
-    "description": "Classic upright mercury barometer. Atmospheric pressure Pa is labelled above the open reservoir. The mercury density ρ is labelled inside the reservoir. The vertical column height h (used in P = ρgh) is annotated with a bracket on the left. The vacuum space at the top is labelled P = 0.",
+    "summary": "Creates a physics diagram of a liquid barometer (e.g. mercury barometer).",
     "name": "create_liquid_barometer_diagram",
     "params": {
       "liquid": {
@@ -1557,7 +1557,7 @@ window.DIAGRAM_INDEX = [
     "group": "gls",
     "groupLabel": "Gas, Liquid and Solid",
     "title": "Open-open manometer — oil over water",
-    "description": "Classic open U-tube with oil floating on water in the left arm. Reference line A is drawn at the oil-water interface (the equal-pressure level). The oil layer height h_o is annotated with a heightLabel on the left arm. The height of water in the right arm above the reference level h_w is annotated using dimensionAnnotations (spans from reference height to the fluid surface). Pressure points mark the equal-pressure level in both arms.",
+    "summary": "Creates a physics diagram of a U-shaped tube (manometer) filled with one or more layers of liquid. Each arm of the tube can be open to atmosphere, sealed with a lid, or connected to a pressurized gas chamber…",
     "name": "create_manometer_diagram",
     "params": {
       "leftArm": {
@@ -1567,12 +1567,12 @@ window.DIAGRAM_INDEX = [
         },
         "layers": [
           {
-            "fluidLabel": "น้ำ",
+            "fluidLabel": "Water",
             "height": 20,
             "color": "lightblue"
           },
           {
-            "fluidLabel": "น้ำมัน",
+            "fluidLabel": "Oil",
             "height": 50,
             "color": "lightyellow",
             "heightLabel": "$h_o = 50\\text{ cm}$"
@@ -1586,7 +1586,7 @@ window.DIAGRAM_INDEX = [
         },
         "layers": [
           {
-            "fluidLabel": "น้ำ",
+            "fluidLabel": "Water",
             "height": 35,
             "color": "lightblue"
           }
@@ -1628,7 +1628,7 @@ window.DIAGRAM_INDEX = [
     "group": "gls",
     "groupLabel": "Gas, Liquid and Solid",
     "title": "Isothermal Expansion (P-V)",
-    "description": "An ideal gas expands isothermally at T ≈ 241 K. Volume doubles from 0.01 to 0.02 m³ while pressure halves. The hyperbolic P-V curve (PV = const) and the directional arrow show the expansion. Symbolic tick labels mark P_A, P_B on the pressure axis and V_A, V_B on the volume axis.",
+    "summary": "Creates a thermodynamics state-and-process diagram. Supports P-V, T-V, and P-T axes. States are defined by pressure (P) and volume (V); temperature T is automatically derived as T ∝ P×V…",
     "name": "create_thermodynamics_process_graph",
     "params": {
       "graphType": "PV",
@@ -1665,7 +1665,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Half-Wave Rectified Current (Diode Circuit)",
-    "description": "Current waveform after a half-wave rectifier: only the positive half of the sine passes through. Numeric amplitude and period labels in SI units.",
+    "summary": "Draws a voltage (V) or current (I) waveform graph for AC/DC circuit problems. Always shows exactly 3 complete periods on the time axis…",
     "name": "create_ac_circuit_waveform_graph",
     "params": {
       "yAxis": "I",
@@ -1686,7 +1686,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Mixed series-parallel with annotations",
-    "description": "An AC source driving a mixed circuit: one series resistor with current annotation, followed by a parallel pair each with a voltage annotation. Demonstrates all supported features simultaneously.",
+    "summary": "Creates a rectangular AC circuit diagram. The top branch carries resistors; the bottom branch carries a single AC source (circle with sine wave symbol). Left and right vertical wires close the loop. The top branch is divided into series stages (left → right)…",
     "name": "create_ac_resistor_circuit_diagram",
     "params": {
       "topStages": [
@@ -1732,7 +1732,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Vertical Magnet — Field Direction at a Side Point",
-    "description": "A vertical bar magnet (N pointing up) with field lines and a point of interest placed to the right. The compass arrow shows the B-field direction at that point.",
+    "summary": "Draws a 2-D diagram showing one to three bar magnets and their magnetic field. Each magnet is rendered as a flat two-color bar — red for the N pole half, blue for the S pole half. Features: • Bar magnets placed at arbitrary (x, y) coordinates…",
     "name": "create_bar_magnets_diagram",
     "params": {
       "magnets": [
@@ -1764,7 +1764,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Mixed series-parallel with all annotations",
-    "description": "A battery drives a mixed capacitor circuit: one series capacitor followed by a parallel pair. Shows all features — capacitance labels, charge labels, polarity marks, and voltage annotations.",
+    "summary": "Creates a capacitor circuit diagram. The top branch holds capacitors; an optional bottom branch holds batteries. Each branch is divided into series stages (left → right). A stage with ONE component is a series element…",
     "name": "create_capacitor_circuit_diagram",
     "params": {
       "topStages": [
@@ -1816,7 +1816,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Full Annotations — Positive Charge Moving at 45°",
-    "description": "A positive charge moving at 45° (upper-right) in a field into the screen. All annotations enabled: velocity, force, full circular orbit with radius, field grid, and right-hand rule. Demonstrates a non-cardinal velocity angle for problems requiring F = qvB sin θ.",
+    "summary": "Creates a physics diagram of a charged particle moving in a uniform magnetic field, illustrating the magnetic force F = qv × B and the resulting circular (or semi-circular) motion.",
     "name": "create_charged_particle_magnetic_field_diagram",
     "params": {
       "chargeType": "positive",
@@ -1853,7 +1853,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Increasing Upward Field — CW Current",
-    "description": "B₁ and B₂ both point upward, but B₂ is larger. ΔΦ is upward → B_ind is downward → induced current is CW. Shows loop, field arrows, induced current, and right-hand gesture.",
+    "summary": "Creates a physics diagram of a stationary closed wire loop in a changing magnetic field, illustrating Faraday's law and Lenz's law.",
     "name": "create_closed_loop_faraday_diagram",
     "params": {
       "loopShape": "rectangular",
@@ -1892,7 +1892,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Horizontal Wire — Field Out of Screen",
-    "description": "Minimal example: horizontal wire (0°) with current flowing right, uniform field pointing out of the screen (+z). The magnetic force points downward (F = IL × B). Axes and field grid are shown; no force components or right-hand image.",
+    "summary": "Creates a physics diagram of a straight current-carrying wire in a uniform magnetic field, showing the magnetic force F = IL × B.",
     "name": "create_current_carrying_wire_magnetic_force_diagram",
     "params": {
       "wireAngle": 0,
@@ -1926,7 +1926,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Half-wave rectifier",
-    "description": "AC source with a diode and resistor in series on the top branch. Students identify which half-cycle allows current to flow.",
+    "summary": "Creates a rectangular circuit diagram with diodes and resistors on the top branch and a single source (AC or DC) on the bottom branch. Left and right vertical wires close the loop. The top branch is divided into series stages (left → right)…",
     "name": "create_diode_circuit_diagram",
     "params": {
       "topStages": [
@@ -1959,7 +1959,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "CCW Loop — Full Field Grid Inside and Outside",
-    "description": "A CCW loop showing the full dipole field pattern: ⊙ (out of screen) inside the loop, ⊗ (into screen) outside — reversed direction. Illustrates how field lines exit through the center and wrap back around the outside.",
+    "summary": "Creates a physics diagram showing the magnetic field produced by a circular current-carrying loop, viewed face-on.",
     "name": "create_magnetic_field_circular_loop_diagram",
     "params": {
       "currentDirection": "counterclockwise",
@@ -1983,7 +1983,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Current Out of Screen — Field Lines Only",
-    "description": "A straight wire carrying current out of the screen (⊙). Three concentric field-line circles with CCW directional arrows are shown. Minimal diagram for introducing the concept.",
+    "summary": "Creates a physics diagram showing the magnetic field produced by a long straight current-carrying wire, viewed in cross-section.",
     "name": "create_magnetic_field_straight_wire_diagram",
     "params": {
       "currentDirection": "out_of_screen",
@@ -2007,7 +2007,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Horizontal Wire — Field Symbols on Both Sides",
-    "description": "A horizontal wire with current flowing to the right (positive). ⊙ symbols appear above the wire and ⊗ below, illustrating the field direction. Clean introductory diagram.",
+    "summary": "Creates a physics diagram showing the magnetic field produced by a straight current-carrying wire, viewed from the side.",
     "name": "create_magnetic_field_straight_wire_side_view_diagram",
     "params": {
       "wireAngle": 0,
@@ -2032,7 +2032,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "E-field and Potential at a Point — Two Charges with Field Lines",
-    "description": "A positive and a negative charge. Point P shows individual and combined E-field arrows. Curved field lines illustrate the dipole field pattern.",
+    "summary": "Draws a 2-D diagram of point charges and their electric interactions. Supports up to 5 charges placed at arbitrary (x, y) coordinates. Features: • Charges rendered as colored circles (red = positive, blue = negative) with +/− sign and label…",
     "name": "create_point_charges_diagram",
     "params": {
       "charges": [
@@ -2101,7 +2101,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Bar Slides Right — With Induced Current and Labels",
-    "description": "Bar slides right in a field pointing out of the screen. Shows induced current arrows (clockwise), length label l, displacement arrow vΔt, and the resistor label R. Typical textbook Faraday's law problem.",
+    "summary": "Creates a physics diagram of a sliding metal bar on two conducting rails in a uniform magnetic field, illustrating Faraday's law and Lenz's law.",
     "name": "create_sliding_bar_faraday_diagram",
     "params": {
       "magneticField": {
@@ -2133,7 +2133,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Mixed series-parallel circuit with meters",
-    "description": "Two batteries in series power a mixed circuit: one series resistor followed by a parallel pair. Individual ammeters on each parallel branch and a voltmeter across the parallel group.",
+    "summary": "Creates a rectangular DC circuit diagram. The top branch carries resistors; the bottom branch carries batteries. Left and right vertical wires close the loop. Each branch is divided into series stages (left → right)…",
     "name": "create_top_bottom_circuit_diagram",
     "params": {
       "topStages": [
@@ -2197,7 +2197,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Step-down transformer — single load with voltage annotation",
-    "description": "2:1 step-down transformer. Primary and secondary voltages are labelled on the coils. A voltage bracket across the load shows the secondary output voltage.",
+    "summary": "Creates a two-loop transformer circuit diagram. The secondary loop (top rectangle) contains the load resistors on its top rail. The primary loop (bottom rectangle) contains the AC source on its bottom rail…",
     "name": "create_transformer_circuit_diagram",
     "params": {
       "loadStages": [
@@ -2231,7 +2231,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Electron Deflected — Entry at A, Exit at B (Both Δx and Δy)",
-    "description": "An electron enters the capacitor near the bottom-center (point A) moving upward. The rightward field exerts a leftward force on the negative charge, deflecting it horizontally as it travels vertically — like a CRT electron beam. Point B marks the exit position. Annotations show the full plate separation d and the horizontal deflection Δx, the two key distances for kinematic analysis.",
+    "summary": "Creates a diagram of a uniform electric field region, optionally with parallel metal plates as the field source, a single charged particle, labeled points of interest, and distance annotations.",
     "name": "create_uniform_electric_field_diagram",
     "params": {
       "fieldWidth": 5,
@@ -2282,7 +2282,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Both Vectors on xy Plane — Arbitrary Angle with Right-Hand Rule",
-    "description": "A points right (0°) and B points at 37° (upper-right). A×B is out of the screen (⊙). Angle arc labeled θ and right-hand rule gesture shown.",
+    "summary": "Creates a physics diagram illustrating the cross product A × B of two vectors, showing the input vectors graphically and the direction of the result via the right-hand rule.",
     "name": "create_vector_cross_product_diagram",
     "params": {
       "vectorA": {
@@ -2311,7 +2311,7 @@ window.DIAGRAM_INDEX = [
     "group": "elec",
     "groupLabel": "Electricity & Magnetism",
     "title": "Basic Wire Stretching (symbols only)",
-    "description": "A wire stretched to twice its original length. Labels use symbols only — suitable when the problem asks students to derive the new resistance ratio.",
+    "summary": "Creates a physics diagram showing two wires — the original (wire 1) and the stretched version (wire 2) — drawn as 3D cylinders with accurate visual proportions.",
     "name": "create_wire_stretching_diagram",
     "params": {
       "wire1LengthLabel": "$l$",
@@ -2328,7 +2328,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Fish Viewed from Above — Full Solution",
-    "description": "Solution diagram showing the light ray geometry. Solid rays travel from the fish to the interface (incident) and diverge into air (refracted). Dashed backward extensions converge at the virtual image, which appears closer to the surface than the real fish. Both real depth s and apparent depth s′ are annotated.",
+    "summary": "Draws a vertical cross-section diagram for apparent depth / real depth problems, where an observer views an object through a flat transparent interface (e.g. a person above water looking at a fish, or a fish looking up at a bird).",
     "name": "create_apparent_depth_diagram",
     "params": {
       "viewFrom": "above",
@@ -2342,12 +2342,12 @@ window.DIAGRAM_INDEX = [
         "show": true,
         "label": "$s'$"
       },
-      "objectLabel": "วัตถุ",
+      "objectLabel": "Object",
       "showVirtualImage": true,
-      "virtualImageLabel": "ภาพเสมือน",
+      "virtualImageLabel": "Virtual image",
       "showRays": true,
-      "mediumObserver": "อากาศ",
-      "mediumObject": "น้ำ"
+      "mediumObserver": "Air",
+      "mediumObject": "Water"
     }
   },
   {
@@ -2357,7 +2357,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Observers in Multiple Directions",
-    "description": "Source S moves right. Three observers sit directly ahead (B), directly behind (A), and perpendicular above (C). Shows that frequency shift depends on the direction to the observer: maximum increase ahead, maximum decrease behind, intermediate above.",
+    "summary": "Draws a 2D Doppler effect diagram for a sound (or wave) source and one or more listeners.",
     "name": "create_doppler_effect_diagram",
     "params": {
       "source": {
@@ -2405,7 +2405,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "White Light Through Red Filter",
-    "description": "White light enters a red filter, which passes only red. The single red transmitted ray is shown with its Thai label.",
+    "summary": "Creates a physics diagram showing light passing through a colored filter.",
     "name": "create_light_color_filter_diagram",
     "params": {
       "incomingLight": "white",
@@ -2422,7 +2422,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "White Light on Cyan Object — Split",
-    "description": "White light hits a cyan object (reflects green+blue). Split mode shows the two reflected primaries as separate rays, illustrating how cyan is composed.",
+    "summary": "Creates a physics diagram showing light reflecting off a colored object at a fixed 45° angle.",
     "name": "create_light_color_reflection_diagram",
     "params": {
       "incomingLight": "white",
@@ -2439,23 +2439,23 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Glass slab — Air → Glass → Air",
-    "description": "Light passing through a parallel-sided glass slab (n=1.5) at 30°. The exit ray is parallel to the incident ray, demonstrating lateral displacement. Angle annotations at both boundaries confirm θ₁ = θ₃.",
+    "summary": "Creates a physics diagram for light refraction through 2–4 parallel medium layers, applying Snell's Law at each boundary.",
     "name": "create_multilayer_refraction_diagram",
     "params": {
       "mediums": [
         {
           "refractiveIndex": 1,
-          "label": "อากาศ",
+          "label": "Air",
           "color": "white"
         },
         {
           "refractiveIndex": 1.5,
-          "label": "แก้ว",
+          "label": "Glass",
           "color": "lightblue"
         },
         {
           "refractiveIndex": 1,
-          "label": "อากาศ",
+          "label": "Air",
           "color": "white"
         }
       ],
@@ -2492,7 +2492,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Convex Lens — Diminished Real Image (s > 2f)",
-    "description": "Object beyond 2F. Converging lens forms a real, inverted, diminished image between F and 2F on the other side.",
+    "summary": "Draws a standard single-element optics ray diagram: one thin mirror or lens with one object.",
     "name": "create_optics_ray_diagram",
     "params": {
       "type": "convex_lens",
@@ -2520,7 +2520,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Convex + Convex Lens — Stage 1",
-    "description": "Two converging lenses separated by 30 cm, f1 = 10 cm, f2 = 15 cm. Object 20 cm to the left of lens 1. Stage 1 shows image formed by lens 1.",
+    "summary": "Draws a two-element optics ray diagram, showing ONE image-formation stage at a time.",
     "name": "create_optics_two_element_diagram",
     "params": {
       "element1Type": "convex_lens",
@@ -2552,7 +2552,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Single Convex Lens — Parallel Beam",
-    "description": "A parallel beam from the left converges to the rear focal point F of a convex lens. Illustrates the fundamental focusing property of a converging lens.",
+    "summary": "Draws a beam of parallel (or focal-diverging) rays passing through a sequence of 1–3 optical elements (lenses and/or a trailing mirror).",
     "name": "create_parallel_rays_diagram",
     "params": {
       "elements": [
@@ -2573,7 +2573,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Basic Wave with Numeric Ticks",
-    "description": "A single sine wave (A = 0.4 m, λ = 1.0 m) in the position domain with numeric tick marks. Mirrors the classic textbook displacement-vs-position graph.",
+    "summary": "Draws one to three overlapping sinusoidal waves y = A·sin(2πx/λ + φ) on a coordinate plane. Use for wave anatomy diagrams, phase-comparison problems, wave equations, and harmonic motion snapshots in either the position domain (x-axis = position, label '$x$')…",
     "name": "create_sinusoidal_wave_diagram",
     "params": {
       "waves": [
@@ -2585,7 +2585,7 @@ window.DIAGRAM_INDEX = [
       ],
       "xMax": 2.5,
       "xLabel": "$x$ (m)",
-      "yLabel": "การกระจัด (m)",
+      "yLabel": "Displacement (m)",
       "tickInterval": 0.5
     }
   },
@@ -2596,7 +2596,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "All Features — Third Harmonic, Displacement Wave",
-    "description": "Demonstrates every available option. m = 2 (third harmonic, λ = 1.2 m), piston at 90 cm inside a 1.3 m tube. Displacement wave with dashed envelope shown. Nodes (N) and antinodes (A) labeled above the tube; air column length annotated as a numeric value (90 cm) below; a λ/2 bracket marks the span from the open end to the second antinode. Piston arrow at the right face of the piston indicates it is moving leftward.",
+    "summary": "Draws a standing sound wave inside a tube with one open end and one movable piston. The left end (x = 0) is open; the piston sits at x = pistonPosition, acting as the closed (reflecting) end. The acoustic air column occupies x = 0 to x = pistonPosition…",
     "name": "create_sound_resonance_piston_tube_diagram",
     "params": {
       "tubeLength": 1.3,
@@ -2637,7 +2637,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Open-Open Tube, Pressure Wave, Second Harmonic",
-    "description": "Open-open tube, m = 2, displaying the pressure wave. Pressure nodes (N) at both open ends and the centre; pressure antinodes (A) at x = L/4 and x = 3L/4. Half-wavelength bracket shown below.",
+    "summary": "Draws a standing sound wave inside a resonant tube. Supports both open-open (both ends open) and open-closed (closed end at left, open end at right) tube configurations. Shows either the displacement wave (default) or the pressure wave — toggled via waveType…",
     "name": "create_sound_resonance_tube_diagram",
     "params": {
       "tubeLength": 0.8,
@@ -2668,7 +2668,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Third Harmonic (n = 3) with Wavelength Bracket",
-    "description": "Three antinodes, four nodes. λ = 2L/3. One full wavelength is annotated above the string from x = 0 to x = 2L/3, and the full string length L is shown below.",
+    "summary": "Draws a standing wave on a fixed-fixed string (both ends tied). Shows the wave snapshot at maximum displacement (solid curve), the dashed envelope (mirror extreme position), the equilibrium line, and fixed-end wall markers…",
     "name": "create_standing_wave_string_diagram",
     "params": {
       "stringLength": 3,
@@ -2701,7 +2701,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "In-Phase Sources — Nodal/Antinodal Lines with Labels",
-    "description": "Classic two-source interference diagram with d = 3λ, showing hyperbolic antinodal lines (blue, A₀–A₃) and nodal lines (green dashed, N₁–N₃), all labelled at the top. A point P on the second antinode A₂ is marked with distance lines d₁ and d₂ to illustrate the path difference.",
+    "summary": "Draws the 2D interference pattern produced by two coherent point sources S₁ and S₂.",
     "name": "create_wave_interference_diagram",
     "params": {
       "sourceSeparation": 3,
@@ -2732,7 +2732,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Flat Mirror — Basic Law of Reflection",
-    "description": "A ray hitting a plane mirror at 35°. The normal line and both angle annotations show that the angle of incidence equals the angle of reflection. Ideal as a first introduction to the law of reflection.",
+    "summary": "Creates a physics diagram illustrating the law of reflection at a mirror surface (angle of incidence = angle of reflection, θᵢ = θᵣ).",
     "name": "create_wave_reflection_diagram",
     "params": {
       "incidentAngle": 35,
@@ -2756,17 +2756,17 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Air to Glass — Basic Refraction",
-    "description": "Light ray going from air (n=1) into glass (n=1.5) at 40°. Shows how the ray bends toward the normal when entering a denser medium. Normal line and both angle annotations visible.",
+    "summary": "Creates a physics diagram for wave refraction at a boundary between two optical media, illustrating Snell's Law (n₁/n₂ = sin θ₂/sin θ₁).",
     "name": "create_wave_refraction_diagram",
     "params": {
       "medium1": {
         "refractiveIndex": 1,
-        "label": "อากาศ",
+        "label": "Air",
         "color": "white"
       },
       "medium2": {
         "refractiveIndex": 1.5,
-        "label": "แก้ว",
+        "label": "Glass",
         "color": "lightblue"
       },
       "incidentAngle": 40,
@@ -2790,7 +2790,7 @@ window.DIAGRAM_INDEX = [
     "group": "wave",
     "groupLabel": "Waves & Optics",
     "title": "Two Rectangular Pulses Approaching Each Other",
-    "description": "Two equal rectangular pulses moving toward each other at t = 1 s. Neither has reached the other yet. Velocity arrows show propagation direction. Good for asking students to predict what happens when the pulses meet.",
+    "summary": "Draws a snapshot of two finite wave pulses (impulse waves) on a y-vs-x axis at time t, with optional superposition view.",
     "name": "create_wave_superposition_diagram",
     "params": {
       "thought": "Two rectangular pulses, A=1, width=2, starting at ±5 and moving inward at speed 2. At t=1: centers at -3 and +3 — not yet overlapping. Use separate mode.",
@@ -2829,7 +2829,7 @@ window.DIAGRAM_INDEX = [
     "group": "modern",
     "groupLabel": "Modern Physics",
     "title": "Point of interest with x and θ annotations",
-    "description": "Marks a point P on the screen at the 2nd antinode (x = 2λL/d), with dashed rays from both slits, a bracket for the screen position x, and an angle arc θ at the slit midpoint. All annotations enabled simultaneously.",
+    "summary": "Draws a Young's double-slit interference diagram with: - A physical barrier (with two slit openings S₁ and S₂) at the bottom - A screen at the top displaying the cos²-intensity interference pattern - Optional dimension brackets for slit separation d and…",
     "name": "create_double_slit_interference_diagram",
     "params": {
       "lambda": 6e-7,
@@ -2866,7 +2866,7 @@ window.DIAGRAM_INDEX = [
     "group": "modern",
     "groupLabel": "Modern Physics",
     "title": "Lyman Series — UV Absorption (n = 1 → 3)",
-    "description": "Ground-state electron absorbs a UV photon (103 nm) and jumps to n=3. The deep-purple wavy arrow illustrates the incoming UV photon.",
+    "summary": "Creates a hydrogen energy level diagram (n = 1–6).",
     "name": "create_energy_level_diagram",
     "params": {
       "showEnergyLabels": true,
@@ -2885,7 +2885,7 @@ window.DIAGRAM_INDEX = [
     "group": "modern",
     "groupLabel": "Modern Physics",
     "title": "First-order maximum with x and θ annotations",
-    "description": "Marks point P at the first-order principal maximum (x = λL/d), with a ray line from the grating midpoint, a bracket for screen position x, and an angle arc θ. Useful for problems applying d sin θ = λ.",
+    "summary": "Draws a diffraction grating diagram with: - A barrier showing multiple evenly-spaced slit openings (the grating) - Sharp principal-maximum (antinode) intensity pattern on the screen - Optional dimension bracket for slit spacing d - Optional dimension bracket…",
     "name": "create_grating_diffraction_diagram",
     "params": {
       "lambda": 6e-7,
@@ -2921,7 +2921,7 @@ window.DIAGRAM_INDEX = [
     "group": "modern",
     "groupLabel": "Modern Physics",
     "title": "Unpolarized light through two polarizers at 60°",
-    "description": "Classic two-polarizer Malus's Law problem. Unpolarized light → first polarizer (I₀/2) → second polarizer at absolute axis angle 60°. Arc α shows the absolute orientation of P2. θ = 60° − 0° = 60°, so I₂ = I₀/2 · cos²(60°) = I₀/8.",
+    "summary": "Creates a physics diagram illustrating Malus's Law — polarized or unpolarized light passing through up to three polarizers in sequence.",
     "name": "create_malus_law_diagram",
     "params": {
       "inputLight": {
@@ -2951,7 +2951,7 @@ window.DIAGRAM_INDEX = [
     "group": "modern",
     "groupLabel": "Modern Physics",
     "title": "Decay — Number of Particles with Specific Half-Life",
-    "description": "8×10²³ particles decay over 3 half-lives of 10 years each. xUnit shows actual years on the x-axis (10, 20, 30). Y-axis uses scientific notation automatically for the large particle count.",
+    "summary": "Draws a radioactive decay graph: remaining quantity N(t) = N₀ × (½)^(t/T½) plotted against time. X-axis ticks are placed automatically at every half-life (T, 2T, 3T…)…",
     "name": "create_radioactive_decay_graph",
     "params": {
       "halfLife": 10,
@@ -2970,7 +2970,7 @@ window.DIAGRAM_INDEX = [
     "group": "modern",
     "groupLabel": "Modern Physics",
     "title": "Point at first node N₁ with x and θ annotations",
-    "description": "Marks point P at the first diffraction minimum (x = λL/a), with a ray line from the slit, a bracket for the screen position x, and an angle arc θ. Useful for problems applying a sin θ = λ.",
+    "summary": "Draws a single-slit diffraction diagram with: - A barrier with one slit opening of width a - A sinc²-intensity diffraction pattern on the screen (wide central maximum, small secondary maxima) - Optional dimension bracket for slit width a - Optional dimension…",
     "name": "create_single_slit_diffraction_diagram",
     "params": {
       "lambda": 6e-7,
@@ -3005,70 +3005,70 @@ window.DIAGRAM_INDEX = [
     "displayName": "Biological Pathway / Stage Sequence",
     "group": "biology",
     "groupLabel": "Biology",
-    "title": "ไมโอซิสตลอดวัฏจักร พร้อมตำแหน่ง A–D",
-    "description": "รูปแบบข้อสอบมาตรฐาน: ลำดับระยะตั้งแต่อินเตอร์เฟสถึงเทโลเฟส II แบ่งเป็นสามช่วง (แถบสี) และมีลูกศรชี้ตำแหน่ง A B C ที่ระยะ กับ D ที่ช่วงรอยต่อระหว่างเทโลเฟส I และโพรเฟส II — จุดที่ไม่มีการจำลอง DNA บรรทัดย่อยบอกเพียงจำนวนชุดโครโมโซม ไม่บอกเหตุการณ์ที่เกิดขึ้น จึงไม่เฉลยคำถามที่ลูกศรชี้",
+    "title": "Meiosis across the whole cycle, with positions A–D",
+    "summary": "Draws a biological process as a left-to-right chain of labelled stage boxes joined by arrows, wrapping onto further rows (each new row runs back the other way, joined by a turn arrow)…",
     "name": "create_biological_pathway_diagram",
     "params": {
-      "title": "การแบ่งเซลล์แบบไมโอซิส",
+      "title": "Meiosis",
       "stages": [
         {
-          "label": "ระยะ G₁",
+          "label": "G₁ phase",
           "sublabel": "2n",
-          "group": "อินเตอร์เฟส"
+          "group": "Interphase"
         },
         {
-          "label": "ระยะ S",
+          "label": "S phase",
           "sublabel": "2n",
-          "group": "อินเตอร์เฟส",
+          "group": "Interphase",
           "marker": "A"
         },
         {
-          "label": "ระยะ G₂",
+          "label": "G₂ phase",
           "sublabel": "2n",
-          "group": "อินเตอร์เฟส",
+          "group": "Interphase",
           "marker": "B"
         },
         {
-          "label": "โพรเฟส I",
+          "label": "Prophase I",
           "sublabel": "2n",
-          "group": "ไมโอซิส I",
+          "group": "Meiosis I",
           "marker": "C"
         },
         {
-          "label": "เมทาเฟส I",
+          "label": "Metaphase I",
           "sublabel": "2n",
-          "group": "ไมโอซิส I"
+          "group": "Meiosis I"
         },
         {
-          "label": "แอนาเฟส I",
+          "label": "Anaphase I",
           "sublabel": "2n",
-          "group": "ไมโอซิส I"
+          "group": "Meiosis I"
         },
         {
-          "label": "เทโลเฟส I",
-          "sublabel": "n ต่อเซลล์",
-          "group": "ไมโอซิส I",
+          "label": "Telophase I",
+          "sublabel": "n per cell",
+          "group": "Meiosis I",
           "markerAfter": "D"
         },
         {
-          "label": "โพรเฟส II",
+          "label": "Prophase II",
           "sublabel": "n",
-          "group": "ไมโอซิส II"
+          "group": "Meiosis II"
         },
         {
-          "label": "เมทาเฟส II",
+          "label": "Metaphase II",
           "sublabel": "n",
-          "group": "ไมโอซิส II"
+          "group": "Meiosis II"
         },
         {
-          "label": "แอนาเฟส II",
+          "label": "Anaphase II",
           "sublabel": "n",
-          "group": "ไมโอซิส II"
+          "group": "Meiosis II"
         },
         {
-          "label": "เทโลเฟส II",
+          "label": "Telophase II",
           "sublabel": "n",
-          "group": "ไมโอซิส II"
+          "group": "Meiosis II"
         }
       ]
     }
@@ -3080,7 +3080,7 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Metaphase I with crossing over",
-    "description": "A feature-rich single panel: a synapsed bivalent per pair straddling the metaphase plate, its two homologues pressed together with their non-sister chromatids crossed at the chiasma, each homologue roped to one pole only — with the phase name and ploidy printed as an answer key.",
+    "summary": "Draws stages of cell division (mitosis and meiosis) as side-by-side cell panels, with chromosomes rendered as sister chromatids joined at a centromere and coloured by parental origin (blue = paternal, rose = maternal).",
     "name": "create_cell_division_diagram",
     "params": {
       "panels": [
@@ -3101,10 +3101,10 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Forensic case — match the suspect (feature-rich)",
-    "description": "The flagship crime-scene figure: a marker ladder, the victim (เหยื่อ), the evidence/secretion sample (สารคัดหลั่ง) whose bands equal the victim's PLUS the culprit's, and three suspects. Suspect 2's bands complete the evidence lane, so highlightSizes accents the culprit's contributed bands across the gel and the migration arrow shows DNA moving down. Shows marker, headings, highlighting, and the migration indicator together.",
+    "summary": "Draws a DNA-fingerprint / gel-electrophoresis figure: a set of vertical lanes, each holding horizontal bands, beside a size marker (ladder). Built for the classic Thai genetics problems that compare band patterns between people.",
     "name": "create_gel_electrophoresis_diagram",
     "params": {
-      "title": "ลายพิมพ์ดีเอ็นเอ: การหาผู้ต้องสงสัย",
+      "title": "DNA fingerprinting: finding the culprit",
       "marker": {
         "sizes": [
           200,
@@ -3119,14 +3119,14 @@ window.DIAGRAM_INDEX = [
       "showMigration": true,
       "lanes": [
         {
-          "label": "เหยื่อ",
+          "label": "Victim",
           "bands": [
             150,
             60
           ]
         },
         {
-          "label": "สารคัดหลั่ง",
+          "label": "Evidence sample",
           "bands": [
             150,
             100,
@@ -3135,21 +3135,21 @@ window.DIAGRAM_INDEX = [
           ]
         },
         {
-          "label": "ผู้ต้องสงสัย 1",
+          "label": "Suspect 1",
           "bands": [
             200,
             60
           ]
         },
         {
-          "label": "ผู้ต้องสงสัย 2",
+          "label": "Suspect 2",
           "bands": [
             100,
             30
           ]
         },
         {
-          "label": "ผู้ต้องสงสัย 3",
+          "label": "Suspect 3",
           "bands": [
             200,
             150
@@ -3160,7 +3160,7 @@ window.DIAGRAM_INDEX = [
         100,
         30
       ],
-      "caption": "แถบของสารคัดหลั่ง = แถบของเหยื่อ + แถบของผู้ต้องสงสัย 2"
+      "caption": "Evidence bands = victim's bands + suspect 2's bands"
     }
   },
   {
@@ -3169,45 +3169,45 @@ window.DIAGRAM_INDEX = [
     "displayName": "Food Chain / Food Web",
     "group": "biology",
     "groupLabel": "Biology",
-    "title": "สายใยอาหารในทุ่งหญ้า พร้อมป้ายลำดับขั้นและไฮไลต์",
-    "description": "สายใยอาหารที่เกิดจากโซ่อาหารสี่สายมาบรรจบกัน มีป้ายบอกลำดับขั้นการถ่ายทอดพลังงานอยู่ด้านซ้าย และไฮไลต์งูซึ่งเป็นสิ่งมีชีวิตที่โจทย์ถามถึง ใช้ถามได้ว่างูเป็นผู้บริโภคลำดับที่เท่าใด หรือถ้างูหายไปประชากรหนูและเหยี่ยวจะเปลี่ยนแปลงอย่างไร",
+    "title": "Grassland food web, with trophic labels and a highlight",
+    "summary": "Draws a food chain or a food web: organisms as labelled boxes stacked by trophic level, joined by arrows that run from the organism being eaten to the organism eating it. The whole figure is laid out automatically — you only list the chains.",
     "name": "create_food_web_diagram",
     "params": {
-      "title": "สายใยอาหารในทุ่งหญ้า",
+      "title": "Grassland food web",
       "chains": [
         [
-          "หญ้า",
-          "ตั๊กแตน",
-          "กบ",
-          "งู",
-          "เหยี่ยว"
+          "Grass",
+          "Grasshopper",
+          "Frog",
+          "Snake",
+          "Hawk"
         ],
         [
-          "หญ้า",
-          "หนู",
-          "งู"
+          "Grass",
+          "Mouse",
+          "Snake"
         ],
         [
-          "หญ้า",
-          "กระต่าย",
-          "เหยี่ยว"
+          "Grass",
+          "Rabbit",
+          "Hawk"
         ],
         [
-          "หญ้า",
-          "ตั๊กแตน",
-          "นก",
-          "เหยี่ยว"
+          "Grass",
+          "Grasshopper",
+          "Bird",
+          "Hawk"
         ]
       ],
       "levelLabels": [
-        "ผู้ผลิต",
-        "ผู้บริโภคลำดับที่ 1",
-        "ผู้บริโภคลำดับที่ 2",
-        "ผู้บริโภคลำดับที่ 3",
-        "ผู้บริโภคลำดับที่ 4"
+        "Producer",
+        "Primary consumer",
+        "Secondary consumer",
+        "Tertiary consumer",
+        "Quaternary consumer"
       ],
       "highlight": [
-        "งู"
+        "Snake"
       ]
     }
   },
@@ -3218,25 +3218,25 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Multiple alleles — a numbered series in subscript",
-    "description": "A single locus carrying four alleles, written the way a numbered series is written: A₁ A₂ A₃ a, with the number as a SUBSCRIPT. Phenotype rules name the short genotype explicitly and a wildcard rule catches the rest, so the square colours itself and reports the 1/4 the question asks for.",
+    "summary": "Draws up to three one-gene Punnett squares SIDE BY SIDE — one per trait — for problems that ask about several traits at once, each inherited in a different way.",
     "name": "create_genetic_cross_diagram",
     "params": {
-      "topLabel": "ต้นที่ 1",
-      "sideLabel": "ต้นที่ 2",
+      "topLabel": "Plant 1",
+      "sideLabel": "Plant 2",
       "squares": [
         {
           "parent1": "A_1 A_3",
           "parent2": "A_2 a",
-          "caption": "ความสูงของต้นถั่ว",
+          "caption": "Pea plant height",
           "phenotypes": [
             {
               "pattern": "A_3 a",
-              "name": "ต้นเตี้ย",
+              "name": "Short",
               "color": "#f5b7b1"
             },
             {
               "pattern": "_ _",
-              "name": "ต้นสูงปกติ",
+              "name": "Tall",
               "color": "#d5f5e3"
             }
           ],
@@ -3254,26 +3254,26 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Two traits, one couple — blood group + colour blindness",
-    "description": "The full feature set in one figure: two squares for the same couple, Thai captions and พ่อ/แม่ corner labels, phenotype colours on both, and highlighted outcomes multiplied into a single answer — the multiplication rule made visible.",
+    "summary": "Draws up to three one-gene Punnett squares SIDE BY SIDE — one per trait — for problems that ask about several traits at once, each inherited in a different way.",
     "name": "create_multi_punnett_square_diagram",
     "params": {
-      "title": "โอกาสของลูกคนถัดไป",
-      "topLabel": "พ่อ",
-      "sideLabel": "แม่",
+      "title": "Chances for the next child",
+      "topLabel": "Father",
+      "sideLabel": "Mother",
       "squares": [
         {
           "parent1": "I^B I^B",
           "parent2": "I^A I^B",
-          "caption": "หมู่เลือด",
+          "caption": "Blood group",
           "phenotypes": [
             {
               "pattern": "I^A I^B",
-              "name": "หมู่ AB",
+              "name": "Group AB",
               "color": "#d7bde2"
             },
             {
               "pattern": "I^B _",
-              "name": "หมู่ B",
+              "name": "Group B",
               "color": "#aed6f1"
             }
           ],
@@ -3284,21 +3284,21 @@ window.DIAGRAM_INDEX = [
         {
           "parent1": "X^A Y",
           "parent2": "X^A X^a",
-          "caption": "ตาบอดสี",
+          "caption": "Colour blindness",
           "phenotypes": [
             {
               "pattern": "X^a Y",
-              "name": "ชายตาบอดสี",
+              "name": "Colour-blind man",
               "color": "#f5b7b1"
             },
             {
               "pattern": "X^A X^a",
-              "name": "หญิงพาหะ",
+              "name": "Carrier woman",
               "color": "#fdebd0"
             },
             {
               "pattern": "_ _",
-              "name": "ปกติ",
+              "name": "Normal",
               "color": "#d5f5e3"
             }
           ],
@@ -3316,17 +3316,17 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Substitution mutation on a DNA duplex (feature-rich)",
-    "description": "A double-stranded DNA with the position ruler, template/coding strand labels, and a substitution marker: the coding-strand base at position 8 (A) changes to T, so codon GAG (Glu) becomes GTG (Val) — the sickle-cell change. Shows the ruler, strand labels, an arrow with the new base, base-pairing rungs, a title and caption all at once.",
+    "summary": "Draws a DNA or RNA base sequence — a single strand or a double-stranded duplex — with 5'/3' directionality, an optional position ruler, and mutation/point-of-interest arrows. Built for protein-synthesis and mutation (gene mutation) problems.",
     "name": "create_nucleotide_sequence_diagram",
     "params": {
-      "title": "การกลายแบบแทนที่คู่เบส (substitution)",
+      "title": "Base-pair substitution mutation",
       "bases": "ATGACCGAGCTGAAATGCTAA",
       "moleculeType": "DNA",
       "end5": "left",
       "doubleStranded": true,
       "showRuler": true,
-      "strand1Label": "สายรหัส",
-      "strand2Label": "สายแม่แบบ",
+      "strand1Label": "Coding strand",
+      "strand2Label": "Template strand",
       "markers": [
         {
           "position": 8,
@@ -3335,7 +3335,7 @@ window.DIAGRAM_INDEX = [
           "color": "#c92a2a"
         }
       ],
-      "caption": "โคดอน GAG → GTG (Glu → Val)"
+      "caption": "Codon GAG → GTG (Glu → Val)"
     }
   },
   {
@@ -3345,7 +3345,7 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Two family lines that marry (cross-lineage)",
-    "description": "Two separate grandparent couples whose children marry, then have children of their own — the multi-lineage shape common in textbook figures. Each child simply references its own parent couple, so the tool wires both families correctly. The dominant trait descends through the affected line (I-2 → II-2 → III-1), appearing in every generation as a dominant trait must.",
+    "summary": "Creates a genetics pedigree chart (family tree) for inheritance problems.",
     "name": "create_pedigree_chart_diagram",
     "params": {
       "title": "Autosomal dominant trait",
@@ -3460,58 +3460,58 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Vertebrate cladogram — every annotation at once",
-    "description": "The full vocabulary in one figure: lettered branch points, the shared derived character on each branch, a named clade bracket, and an extinct lineage stopping short of the present. The spread of features makes it the reference for what the tool can draw.",
+    "summary": "Draws a rooted evolutionary tree: named taxa as tips down the right-hand side, joined by branches back to their common ancestors. It shows the ORDER of branching only — branch length carries no dates.",
     "name": "create_phylogenetic_tree_diagram",
     "params": {
       "taxa": [
         {
-          "name": "ปลาฉลาม"
+          "name": "Shark"
         },
         {
-          "name": "กบ"
+          "name": "Frog"
         },
         {
-          "name": "ไดโนเสาร์",
+          "name": "Dinosaur",
           "extinct": true
         },
         {
-          "name": "นกพิราบ"
+          "name": "Pigeon"
         },
         {
-          "name": "มนุษย์"
+          "name": "Human"
         }
       ],
       "clades": [
         {
           "members": [
-            "ไดโนเสาร์",
-            "นกพิราบ"
+            "Dinosaur",
+            "Pigeon"
           ],
           "marker": "III"
         },
         {
           "members": [
-            "ไดโนเสาร์",
-            "นกพิราบ",
-            "มนุษย์"
+            "Dinosaur",
+            "Pigeon",
+            "Human"
           ],
           "marker": "II",
-          "trait": "ถุงน้ำคร่ำ",
-          "groupName": "สัตว์มีถุงน้ำคร่ำ"
+          "trait": "Amnion",
+          "groupName": "Amniotes"
         },
         {
           "members": [
-            "กบ",
-            "ไดโนเสาร์",
-            "นกพิราบ",
-            "มนุษย์"
+            "Frog",
+            "Dinosaur",
+            "Pigeon",
+            "Human"
           ],
           "marker": "I",
-          "trait": "ขา 4 ขา"
+          "trait": "Four limbs"
         }
       ],
       "style": "rectangular",
-      "title": "แผนภาพวิวัฒนาการของสัตว์มีกระดูกสันหลัง"
+      "title": "Vertebrate phylogenetic tree"
     }
   },
   {
@@ -3521,11 +3521,11 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Cloning setup — plasmid + insert (feature-rich)",
-    "description": "The flagship figure and a fully solvable setup: a plasmid with two antibiotic-resistance genes (kept intact), a lacZ reporter carrying an MCS cluster, one single cutter in the backbone, plus the linear insert carrying gene Y flanked by two enzyme columns and cut once INSIDE the gene. BamHI is the unique correct choice — a single cutter inside lacZ (so insertion inactivates the reporter for blue/white screening), flanking gene Y on both ends, leaving amp^R, kan^R and ori intact. SalI is the strong distractor: it cuts the plasmid's MCS and flanks the gene on both ends, but its internal site would chop gene Y in two. Advertises features, an MCS cluster, a single site, centre name/size, and every part of the insert together.",
+    "summary": "Draws a plasmid map for recombinant-DNA / gene-cloning problems: a circular plasmid shown as a DNA ring with coloured gene/marker regions and labelled restriction-enzyme cut sites, plus an OPTIONAL linear DNA fragment (the gene to be inserted) below it.",
     "name": "create_plasmid_map_diagram",
     "params": {
-      "title": "การตัดต่อยีน Y เข้าสู่พลาสมิด",
-      "plasmidName": "พลาสมิด B",
+      "title": "Splicing gene Y into a plasmid",
+      "plasmidName": "Plasmid B",
       "plasmidSize": "5,000 bp",
       "features": [
         {
@@ -3572,7 +3572,7 @@ window.DIAGRAM_INDEX = [
         }
       ],
       "insert": {
-        "geneLabel": "ยีน Y",
+        "geneLabel": "Gene Y",
         "leftSites": [
           "EcoRI",
           "BamHI",
@@ -3588,7 +3588,7 @@ window.DIAGRAM_INDEX = [
             "position": 0.5
           }
         ],
-        "caption": "ดีเอ็นเอที่มียีน Y ที่ต้องการศึกษา"
+        "caption": "DNA carrying the gene Y of interest"
       }
     }
   },
@@ -3599,7 +3599,7 @@ window.DIAGRAM_INDEX = [
     "group": "biology",
     "groupLabel": "Biology",
     "title": "Cross mode — monohybrid P→F1→F2",
-    "description": "The full generational story: true-breeding purple (PP) × white (pp) parents, their gametes, the uniform Pp F1 hybrid, the F1 gametes (½ each), and the F2 Punnett square giving 3:1. This is the classic Mendel monohybrid figure.",
+    "summary": "Creates a Punnett square (and optionally the full P→F1→F2 cross diagram) for genetics problems.",
     "name": "create_punnett_square_diagram",
     "params": {
       "mode": "cross",
@@ -3628,7 +3628,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Hydrogen — emission vs absorption, with values",
-    "description": "A feature-rich hydrogen diagram: six levels plus the ionization limit, energy values in kJ, and two transitions drawn together — an emission (n = 3 → 2, down) and an absorption (n = 1 → 4, up). Shows how the tool combines levels, the n = ∞ limit, values, and both transition directions at once.",
+    "summary": "Draws an atomic energy-level diagram — horizontal lines for the principal energy levels n = 1, 2, 3, … stacked with the hydrogen-like spacing (Eₙ ∝ −1/n²), so they crowd closer together as n rises and converge toward the ionization limit (n = ∞, E = 0)…",
     "name": "create_atomic_energy_levels_diagram",
     "params": {
       "numLevels": 6,
@@ -3656,7 +3656,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Highlighted unknown + colour groups + full labels",
-    "description": "Every feature at once: A/B group labels and period numbers for orientation, two categorised elements (Q shaded as a metal, R as a nonmetal), a highlighted '?' marking the specific cell being asked about, and the lanthanide/actinide f-block shown below.",
+    "summary": "Draws a BLANK periodic table and drops made-up element symbols into cells you choose — the classic \"mystery element\" figure where students deduce properties purely from an element's position.",
     "name": "create_periodic_table_diagram",
     "params": {
       "showGroupLabels": true,
@@ -3691,7 +3691,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "NaCl — full Born–Haber cycle",
-    "description": "The canonical example: sodium chloride from its elements. The three endothermic steps (sublimation, ½ dissociation, ionization) climb to the peak; the two exothermic steps (electron affinity, lattice energy) descend to NaCl(s). The direct ΔH_f arrow shows the Hess's-law net route.",
+    "summary": "Draws a Born–Haber cycle as a two-column energy-level (\"mountain\") diagram — the standard way Thai upper-secondary chemistry shows the formation of an ionic compound from its elements and finds its lattice energy.",
     "name": "create_born_haber_cycle_diagram",
     "params": {
       "baselineLabel": "Na(s) + ½Cl₂(g)",
@@ -3732,7 +3732,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Rate–time — correct dynamic equilibrium (N₂O₄ ⇌ 2NO₂)",
-    "description": "The flagship example. Forward rate (N₂O₄ → 2NO₂) starts high and falls; reverse rate (2NO₂ → N₂O₄) starts at 0 and rises; both converge to the SAME non-zero constant rate. This is the correct picture of dynamic equilibrium — the rates become equal and constant, not zero. A dashed line marks where equilibrium is reached.",
+    "summary": "Draws the approach-to-equilibrium graphs of Thai upper-secondary chemistry: a set of curves that start at t = 0 and level off onto flat plateaus once the system reaches equilibrium. Two standard graph types, selected with `mode`:",
     "name": "create_chemical_equilibrium_graph",
     "params": {
       "mode": "rate",
@@ -3749,7 +3749,7 @@ window.DIAGRAM_INDEX = [
         }
       ],
       "showEquilibriumLine": true,
-      "equilibriumLineLabel": "ภาวะสมดุล"
+      "equilibriumLineLabel": "Equilibrium"
     }
   },
   {
@@ -3759,7 +3759,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "CuSO₄ solution with graphite electrodes",
-    "description": "The tool's flagship view, and the standard สสวท. experiment: inert graphite electrodes in CuSO₄(aq). Water is oxidised at the anode because SO₄²⁻ will not give up electrons, so O₂ bubbles off there, while Cu²⁺ is reduced and plates out as a reddish coating on the cathode — visible in the drawing as a widened bar. Every annotation is on: polarity, role captions, e⁻ arrows and both migrating ions.",
+    "summary": "Draws ONE electrolytic cell doing electrolysis: a vessel of electrolyte with two electrodes wired to a DC source, showing what is set free at each electrode. It shows electricity DRIVING a reaction, not a cell producing electricity.",
     "name": "create_electrolysis_cell_diagram",
     "params": {
       "thought": "SO₄²⁻ cannot be oxidised, so water goes instead: 2H₂O → O₂ + 4H⁺ + 4e⁻. At the cathode Cu²⁺ (E° = +0.34 V) beats water, so copper plates out.",
@@ -3793,7 +3793,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Iron (Fe) — unpaired electrons",
-    "description": "A transition metal (Z = 26). Hund's rule spreads 3d⁶ as ↑↓ ↑ ↑ ↑ ↑, and `emphasizeUnpaired` rings the four singly-occupied 3d orbitals — the answer to 'how many unpaired electrons?'. Notation shown as a caption.",
+    "summary": "Draws the electron arrangement of an atom or ion as an ORBITAL BOX DIAGRAM — one box per orbital with ↑/↓ arrows, subshells labelled beneath, laid out left→right in filling order — and, optionally, the spdf electron-configuration notation as a caption.",
     "name": "create_electron_configuration_diagram",
     "params": {
       "atomicNumber": 26,
@@ -3808,7 +3808,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Silver-plating a spoon",
-    "description": "The tool's flagship view and the textbook case: a silver bar as the anode, a steel spoon as the cathode, in AgNO₃ solution. Every annotation is on — polarity, role captions, e⁻ along the wires, the Ag⁺ ion crossing the bath, both half-reactions and the mass changes. The silver coating is drawn on the spoon, and the anode loses exactly the mass the spoon gains.",
+    "summary": "Draws ONE electroplating cell: a bath of plating solution with the coating metal as a bar on the left and the object being coated hanging on the right, wired to a DC source. The object is drawn as a recognisable shape with the new coating on it.",
     "name": "create_electroplating_diagram",
     "params": {
       "thought": "The coating metal silver is the anode; the spoon is the object so it is the cathode. The bath must carry Ag⁺, so AgNO₃.",
@@ -3818,7 +3818,7 @@ window.DIAGRAM_INDEX = [
       },
       "object": {
         "shape": "spoon",
-        "label": "ช้อน",
+        "label": "Spoon",
         "material": "Fe",
         "halfReaction": "Ag⁺(aq) + e⁻ → Ag(s)"
       },
@@ -3842,7 +3842,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Zn–Cu cell, fully annotated",
-    "description": "The tool's flagship view: the Daniell cell with every annotation on at once — anode/cathode captions, −/+ polarity, e⁻ arrows along the wire, ion arrows in the salt bridge, both half-cell potentials, both half-reactions and the measured 1.10 V. Zinc is oxidised (E° = −0.76 V), copper reduced (E° = +0.34 V), so E°cell = 0.34 − (−0.76) = 1.10 V.",
+    "summary": "Draws ONE galvanic cell — two half-cells, each a beaker of electrolyte holding an electrode, joined by a salt bridge and wired through a meter. It shows a cell producing electricity, not electrolysis or electroplating.",
     "name": "create_galvanic_cell_diagram",
     "params": {
       "thought": "Zn has the more negative reduction potential, so Zn is the anode on the left. E°cell = E°cathode − E°anode = 0.34 − (−0.76) = 1.10 V.",
@@ -3876,7 +3876,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Add NO₂ to N₂O₄ ⇌ 2NO₂ (the classic disturbance)",
-    "description": "The flagship Le Chatelier graph. The system sits at equilibrium, then NO₂ is added: [NO₂] leaps up, then relaxes partway back down as the system shifts left to consume it, settling above its original value; [N₂O₄] rises smoothly to a new higher plateau. The dashed line marks the moment NO₂ is added. Shows the signature jump-then-relax shape and both species responding.",
+    "summary": "Draws a Le Chatelier disturbance graph of Thai upper-secondary chemistry: concentration (or moles) vs time for a system at equilibrium that is disturbed and then shifts to a NEW equilibrium.",
     "name": "create_le_chatelier_graph",
     "params": {
       "species": [
@@ -3892,7 +3892,7 @@ window.DIAGRAM_INDEX = [
           "finalValue": 42
         }
       ],
-      "disturbanceLabel": "เติม NO₂"
+      "disturbanceLabel": "Add NO₂"
     }
   },
   {
@@ -3902,7 +3902,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Water (H₂O) — line style",
-    "description": "Water in the default line style: bonds as lines, lone pairs as dots. Two bonds + two lone pairs give the bent shape automatically.",
+    "summary": "Draws Lewis (electron-dot) structures for chemical bonding — atoms, molecules, ions, and ionic compounds — with lone pairs, single/double/triple covalent bonds, coordinate (dative) bonds, the Thai dot-and-cross convention, and the CORRECT molecular shape…",
     "name": "create_lewis_structure_diagram",
     "params": {
       "units": [
@@ -3929,7 +3929,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Three substances compared, with special-hazard codes",
-    "description": "The tool's main use: several captioned signs side by side so students read and rank them. Ethanol is the most flammable (red 3), concentrated sulfuric acid the most reactive of the three and carries W — water must never be poured into it — and sodium is hazardous on every axis. Covers captions, the full 0–4 range and two white-quadrant codes at once.",
+    "summary": "Draws the NFPA 704 hazard sign — the four-colour square standing on one corner that is printed on chemical containers. Draws 1–4 signs side by side, each with an optional caption, for comparison questions.",
     "name": "create_nfpa_diamond_diagram",
     "params": {
       "thought": "Ethanol alone has red 3, so 'most flammable' has a unique answer. Sulfuric acid and sodium both take W; only sodium reaches blue 3 with red 3, so 'most hazardous overall' is unambiguous.",
@@ -3938,21 +3938,21 @@ window.DIAGRAM_INDEX = [
           "health": "2",
           "flammability": "3",
           "reactivity": "0",
-          "label": "เอทานอล"
+          "label": "Ethanol"
         },
         {
           "health": "3",
           "flammability": "0",
           "reactivity": "2",
           "special": "W",
-          "label": "กรดซัลฟิวริกเข้มข้น"
+          "label": "Concentrated sulfuric acid"
         },
         {
           "health": "3",
           "flammability": "3",
           "reactivity": "2",
           "special": "W",
-          "label": "โซเดียม"
+          "label": "Sodium"
         }
       ]
     }
@@ -3964,7 +3964,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Ethane (C₂H₆) — alkane",
-    "description": "The baseline: two carbons joined by a single bond, with every C–H drawn out. Hydrogens are auto-filled to complete each carbon's octet — you never list them.",
+    "summary": "Draws structural formulas of ORGANIC molecules — carbon chains and rings with single/double/triple bonds, functional groups, branches, isomers, and polymers…",
     "name": "create_organic_structure_diagram",
     "params": {
       "molecules": [
@@ -3984,7 +3984,7 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Caffeine — fused purine, showCarbons:\"all\" (mono)",
-    "description": "Caffeine \"Cn1cnc2c1c(=O)n(C)c(=O)n2C\" — a fused purine — with showCarbons:\"all\" so every carbon is labelled with its hydrogens (the nearest this engine gets to a full structural formula), in monochrome house ink.",
+    "summary": "Renders an organic molecule from a SMILES string (Simplified Molecular Input Line Entry System) using automatic 2D layout — suited to complex or arbitrary structures: fused and poly-cyclic rings, large or heavily-branched skeletons, sugars, natural products,…",
     "name": "create_smiles_structure_diagram",
     "params": {
       "smiles": "Cn1cnc2c1c(=O)n(C)c(=O)n2C",
@@ -3998,11 +3998,11 @@ window.DIAGRAM_INDEX = [
     "displayName": "Radioactive Decay Series",
     "group": "chemistry",
     "groupLabel": "Chemistry",
-    "title": "อนุกรมยูเรเนียม-238 — ขั้นบันไดเต็มอนุกรม",
-    "description": "อนุกรมการสลายตัวของ U-238 ครบทั้ง 14 ขั้นจนได้ Pb-206 ที่เสถียร เป็นรูปขั้นบันไดที่ใช้ตอบได้หลายคำถามในภาพเดียว — แอลฟาเลื่อนลงซ้าย (เลขมวลลด 4 เลขอะตอมลด 2) บีตาเลื่อนไปขวาในระดับเดิม (เลขมวลคงที่ เลขอะตอมเพิ่ม 1) นับได้ว่าเกิดแอลฟา 8 ครั้งและบีตา 6 ครั้ง ใช้ทั้ง highlight และ title",
+    "title": "Uranium-238 series — the full staircase",
+    "summary": "Draws a radioactive decay SERIES as a nuclide chart: every nuclide in the chain is a point plotted against atomic number (x, with element symbols along the axis) and mass number (y), joined by colour-coded α/β steps with a legend…",
     "name": "create_nuclear_decay_chain_diagram",
     "params": {
-      "title": "อนุกรมการสลายตัวของยูเรเนียม-238",
+      "title": "Uranium-238 decay series",
       "start": {
         "symbol": "U",
         "massNumber": 238
@@ -4061,30 +4061,30 @@ window.DIAGRAM_INDEX = [
     "group": "chemistry",
     "groupLabel": "Chemistry",
     "title": "Exothermic single step — Eₐ forward, Eₐ reverse, and ΔE",
-    "description": "The workhorse diagram: a single-step exothermic reaction (คายพลังงาน) with the products below the reactants. Shows all three measurement arrows at once — forward activation energy (reactant → peak), reverse activation energy (product → peak), and the overall energy released ΔE — plus the activated-complex label at the peak.",
+    "summary": "Draws a reaction energy-profile diagram — the smooth \"energy vs reaction progress\" curve used throughout the Thai upper-secondary chemical-kinetics topic. Energy is the vertical axis; the horizontal axis only shows how the reaction advances.",
     "name": "create_reaction_energy_profile_diagram",
     "params": {
       "reactantEnergy": 40,
-      "reactantLabel": "สารตั้งต้น",
+      "reactantLabel": "Reactants",
       "steps": [
         {
           "peakEnergy": 100,
           "levelEnergy": 15,
-          "levelLabel": "สารผลิตภัณฑ์",
-          "peakLabel": "สารเชิงซ้อนกัมมันต์",
+          "levelLabel": "Products",
+          "peakLabel": "Activated complex",
           "activationEnergy": {
             "show": true,
-            "label": "พลังงานก่อกัมมันต์ไปข้างหน้า"
+            "label": "Forward activation energy"
           },
           "reverseActivationEnergy": {
             "show": true,
-            "label": "ย้อนกลับ"
+            "label": "Reverse"
           }
         }
       ],
       "energyChange": {
         "show": true,
-        "label": "พลังงานที่คายออกมา"
+        "label": "Energy released"
       }
     }
   },
@@ -4094,8 +4094,8 @@ window.DIAGRAM_INDEX = [
     "displayName": "Titration Curve",
     "group": "chemistry",
     "groupLabel": "Chemistry",
-    "title": "กรดอ่อน-เบสแก่ — the full picture",
-    "description": "The flagship example: 50 cm³ of 0.1 mol/dm³ CH₃COOH titrated with 0.1 mol/dm³ NaOH. Shows almost everything at once — the equivalence point labelled with its computed pH (8.73, correctly above 7 because CH₃COO⁻ hydrolyses), dashed guides to both axes, the buffer region bracketed, and a gridline mesh for reading values off the curve.",
+    "title": "Weak acid–strong base — the full picture",
+    "summary": "Draws the acid-base titration curve of Thai upper-secondary chemistry: pH against the volume of titrant added, with the S-shaped jump at the equivalence point.",
     "name": "create_titration_curve_diagram",
     "params": {
       "analyteType": "weak_acid",
@@ -4116,8 +4116,8 @@ window.DIAGRAM_INDEX = [
     "displayName": "Volumetric Glassware Reading",
     "group": "chemistry",
     "groupLabel": "Chemistry",
-    "title": "อ่านปริมาตรจากกระบอกตวง — เลนส์ขยายและเลขประมาณ",
-    "description": "รูปหลักของเรื่องนี้ กระบอกตวง 100 mL ขีดละ 1 mL ของเหลวอยู่ที่ 67 mL เลนส์ขยายทำให้เห็นขีดย่อยชัดว่าส่วนโค้งต่ำสุดอยู่ระหว่าง 66 กับ 68 และค่าที่อ่านได้ 67.0 mL แสดงเลขตัวสุดท้ายที่มาจากการประมาณเป็นสีแดง ใช้ทั้ง zoom อัตโนมัติและ showReading ในรูปเดียว",
+    "title": "Reading a graduated cylinder — magnifier and the estimated digit",
+    "summary": "Draws one to three pieces of laboratory volumetric glassware side by side, optionally holding liquid, so a student can read the volume off the scale. Liquid is always drawn as water, with a concave meniscus read at its lowest point.",
     "name": "create_volumetric_glassware_diagram",
     "params": {
       "items": [
@@ -4125,7 +4125,7 @@ window.DIAGRAM_INDEX = [
           "type": "graduated_cylinder",
           "capacity": 100,
           "volume": 67,
-          "label": "กระบอกตวง 100 mL"
+          "label": "100 mL graduated cylinder"
         }
       ],
       "showReading": true
@@ -4138,7 +4138,7 @@ window.DIAGRAM_INDEX = [
     "group": "measurement",
     "groupLabel": "Measurement & Instruments",
     "title": "Ammeter — Range 2 A with Reading",
-    "description": "Textbook example: ammeter set to 2 A range (scale-2 row active). Needle at 1.20 A. Reading shown: 1.20 ± 0.05 A. Demonstrates 2-decimal-place recording for the 2 A range.",
+    "summary": "Draws a D'Arsonval (moving-coil) analog meter — ammeter or voltmeter — with a semicircular arc dial face showing three stacked scale rows and a needle pointing to the measured value.",
     "name": "create_analog_meter_reading_diagram",
     "params": {
       "meterType": "ammeter",
@@ -4154,7 +4154,7 @@ window.DIAGRAM_INDEX = [
     "group": "measurement",
     "groupLabel": "Measurement & Instruments",
     "title": "Half-mm Mark Exposed",
-    "description": "Main scale shows 4.50 mm (half-mm mark exposed), thimble reads 41 divisions → total 4.91 mm.",
+    "summary": "Draws the scale section of a micrometer — barrel/sleeve with linear scale and thimble with rotary scale.",
     "name": "create_micrometer_reading_diagram",
     "params": {
       "measurementValue": 4.91
@@ -4167,7 +4167,7 @@ window.DIAGRAM_INDEX = [
     "group": "measurement",
     "groupLabel": "Measurement & Instruments",
     "title": "Quiz — Read the Ruler (Bar)",
-    "description": "A plain bar against a ruler with the reading hidden. Students must identify the correct value to two decimal places and state the uncertainty (±0.05 cm).",
+    "summary": "Draws a 15 cm ruler with an object placed against it to illustrate a length measurement. A zoom circle is always shown, magnifying the measurement tip so the scale is easy to read regardless of the object's length.",
     "name": "create_ruler_reading_diagram",
     "params": {
       "measurementValue": 4.55,
@@ -4184,7 +4184,7 @@ window.DIAGRAM_INDEX = [
     "group": "measurement",
     "groupLabel": "Measurement & Instruments",
     "title": "Textbook Example — 50-Division (0.02 mm) with Reading",
-    "description": "Reproduces the IPST textbook example: main scale 23.00 mm + vernier division 27 (0.54 mm) = 23.54 ± 0.01 mm. Reading annotation shown; demonstrates the Thai curriculum format.",
+    "summary": "Draws the scale section of a vernier caliper — main scale on top, vernier scale below. Only the scales are drawn; no jaws or body.",
     "name": "create_vernier_caliper_reading_diagram",
     "params": {
       "measurementValue": 23.54,
@@ -4199,7 +4199,7 @@ window.DIAGRAM_INDEX = [
     "group": "misc",
     "groupLabel": "Miscellaneous",
     "title": "Parabola with Points of Interest",
-    "description": "y = x² − 4x + 3 with key points highlighted: roots at (1, 0) and (3, 0), and the vertex at (2, −1).",
+    "summary": "Plots a piecewise polynomial curve, each section a quadratic over its own domain interval.",
     "name": "create_polynomial_graph",
     "params": {
       "graphSections": [
@@ -4238,7 +4238,7 @@ window.DIAGRAM_INDEX = [
     "group": "misc",
     "groupLabel": "Miscellaneous",
     "title": "Two Perpendicular Forces",
-    "description": "A horizontal force and a vertical force added head-to-tail, showing the resultant.",
+    "summary": "Draws a chain of vectors placed head to tail, with the resultant running from the first tail to the last head.",
     "name": "create_vector_addition_headtotail",
     "params": {
       "vectors": [
@@ -4264,7 +4264,7 @@ window.DIAGRAM_INDEX = [
     "group": "misc",
     "groupLabel": "Miscellaneous",
     "title": "Two Forces at 60° Apart",
-    "description": "The parallelogram rule applied to two forces separated by 60°, producing a resultant along the diagonal.",
+    "summary": "Draws two vectors from a common origin with the parallelogram completed, and its diagonal as their resultant.",
     "name": "create_vector_addition_parallelogram",
     "params": {
       "vectorA": {
@@ -4288,7 +4288,7 @@ window.DIAGRAM_INDEX = [
     "group": "misc",
     "groupLabel": "Miscellaneous",
     "title": "Force at 30° with Components Shown",
-    "description": "A force of 10 N at 30° above horizontal, broken into its horizontal and vertical components.",
+    "summary": "Draws a single vector resolved into its perpendicular x and y components, forming the classic right triangle.",
     "name": "create_vector_resolution",
     "params": {
       "vector": {

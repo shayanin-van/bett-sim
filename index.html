@@ -311,6 +311,18 @@
         margin-top: 0;
       }
 
+      .intro {
+        max-width: 68ch;
+        margin: 0 0 30px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .intro strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
       .group-head .count {
         color: var(--muted);
         font-weight: 300;
@@ -342,6 +354,20 @@
         object-fit: contain;
         background: #fff;
         padding: 18px;
+      }
+
+      /* what the tool draws, under the panel's title bar */
+      .player-note {
+        padding: 10px 18px 12px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.55;
+      }
+
+      .player-note[hidden] {
+        display: none;
       }
 
       .stage {
@@ -619,6 +645,7 @@
           <button type="button" id="player-close">Close &#10005;</button>
         </div>
         <iframe id="player-frame" class="player-media" title="Simulation" allow="fullscreen; xr-spatial-tracking"></iframe>
+        <p class="player-note" id="player-note" hidden></p>
         <div class="stage" id="player-stage" hidden>
           <div class="editor">
             <div class="editor-bar">
@@ -634,6 +661,7 @@
     </div>
 
     <script src="diagrams/index.js"></script>
+    <script src="vendor/en-labels.js"></script>
     <script>
       (function () {
         var player = document.getElementById("player");
@@ -644,6 +672,7 @@
         var editor = document.getElementById("editor-json");
         var editorError = document.getElementById("editor-error");
         var target = document.getElementById("render-target");
+        var note = document.getElementById("player-note");
         var lastFocus = null;
 
         function openPanel(label) {
@@ -657,6 +686,7 @@
         function openSim(src, label) {
           frame.hidden = false;
           stage.hidden = true;
+          note.hidden = true;
           frame.title = label;
           frame.src = src;
           openPanel(label);
@@ -710,6 +740,13 @@
           });
         }
 
+        var INTRO =
+          '<p class="intro">Every figure below is drawn from a JSON object. Each tool ' +
+          'publishes a <strong>constraint schema</strong> describing exactly what it can draw, ' +
+          'so a language model states the figure it wants &mdash; the values, the labels, the ' +
+          'arrows &mdash; and the renderer draws it accurately, every time. Open one to edit ' +
+          'the JSON and watch it redraw.</p>';
+
         function diagramsMarkup(items) {
           var counts = {};
           items.forEach(function (d) {
@@ -745,7 +782,7 @@
           var panel = document.getElementById("panel-diagrams");
           var items = window.DIAGRAM_INDEX || [];
           panel.innerHTML = items.length
-            ? diagramsMarkup(items)
+            ? INTRO + diagramsMarkup(items)
             : '<p class="status">No diagrams yet &mdash; run scripts/export-diagrams.mjs.</p>';
         }
 
@@ -782,6 +819,8 @@
           current = d;
           editor.value = JSON.stringify({ name: d.name, parameters: d.params }, null, 2);
           editorError.hidden = true;
+          note.textContent = d.summary || "";
+          note.hidden = !d.summary;
           stage.hidden = false;
           frame.hidden = true;
           stillImage(d); // placeholder while the renderer loads
@@ -814,7 +853,12 @@
                   });
               if (!tool) throw new Error('unknown diagram tool "' + spec.name + '"');
               target.innerHTML = "";
-              return tool.render(target, spec.parameters || {});
+              return Promise.resolve(tool.render(target, spec.parameters || {})).then(
+                function () {
+                  // some renderers caption in Thai; the exported PNGs get the same swap
+                  if (window.toEnglish) window.toEnglish(target);
+                },
+              );
             })
             .catch(function (err) {
               if (current !== d) return;

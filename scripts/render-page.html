@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+  Headless render target for scripts/export-diagrams.mjs.
+
+  It speaks the same contract the package's own preview page does — read the spec from
+  localStorage.preview_ui_json, draw into `.diagram`, tag the result `svg.diagramSvg` — so the
+  package's eval/lib/render.mjs harness drives it unchanged. Using our own page (rather than
+  `pnpm preview:dev`) means the exported PNGs go through the same English label swap the live
+  gallery applies, and the export needs no second dev server.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>diagram render target</title>
+    <style>
+      body {
+        margin: 0;
+        background: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      .diagram {
+        width: 680px;
+        margin: 16px;
+      }
+      pre {
+        color: #b03039;
+        white-space: pre-wrap;
+        margin: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="diagram" id="out"></div>
+    <script src="lams-diagram.js"></script>
+    <script src="en-labels.js"></script>
+    <script>
+      (async function () {
+        var out = document.getElementById("out");
+        function fail(message) {
+          out.innerHTML = "";
+          var pre = document.createElement("pre");
+          pre.textContent = message;
+          out.appendChild(pre);
+        }
+        try {
+          var spec = JSON.parse(localStorage.getItem("preview_ui_json") || "null");
+          if (!spec) return fail("no spec in localStorage.preview_ui_json");
+          var tool =
+            window.LAMS_TOOLS[spec.key] ||
+            Object.values(window.LAMS_TOOLS).find(function (t) {
+              return t.declaration.name === spec.name;
+            });
+          if (!tool) return fail('unknown tool "' + (spec.key || spec.name) + '"');
+          await tool.render(out, spec.parameters || {});
+          window.toEnglish(out);
+        } catch (e) {
+          fail(String((e && e.stack) || e));
+        }
+      })();
+    </script>
+  </body>
+</html>
