@@ -313,9 +313,13 @@
 
       .intro {
         max-width: 68ch;
-        margin: 0 0 30px;
+        margin: 0 0 14px;
         color: var(--muted);
         font-size: 0.94rem;
+      }
+
+      .intro:last-of-type {
+        margin-bottom: 30px;
       }
 
       .intro strong {
@@ -741,11 +745,15 @@
         }
 
         var INTRO =
-          '<p class="intro">Every figure below is drawn from a JSON object. Each tool ' +
-          'publishes a <strong>constraint schema</strong> describing exactly what it can draw, ' +
-          'so a language model states the figure it wants &mdash; the values, the labels, the ' +
-          'arrows &mdash; and the renderer draws it accurately, every time. Open one to edit ' +
-          'the JSON and watch it redraw.</p>';
+          '<p class="intro">Every figure below is drawn from a JSON object, not generated as ' +
+          'pixels. Each tool publishes a <strong>constraint schema</strong> describing exactly ' +
+          'what it can draw, so a language model states the figure it wants &mdash; the values, ' +
+          'the labels, the arrows &mdash; and a renderer draws precisely that.</p>' +
+          '<p class="intro">Ask an image model for the same diagram and you get one that is ' +
+          '<strong>almost right</strong>: an axis mislabelled, a value invented, an arrow ' +
+          'pointing the wrong way. Almost right is no use in teaching material. This is how we ' +
+          'let an LLM write academic content whose diagrams are correct. Open one and edit the ' +
+          'JSON to watch it redraw.</p>';
 
         function diagramsMarkup(items) {
           var counts = {};
