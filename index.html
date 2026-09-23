@@ -268,6 +268,186 @@
         background: #fff;
       }
 
+      /* ---------- tabs ---------- */
+      .tabs {
+        display: flex;
+        margin-top: 22px;
+        margin-bottom: -31px;
+      }
+
+      .tab {
+        font: inherit;
+        font-size: 0.94rem;
+        color: var(--muted);
+        background: none;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        padding: 8px 4px 10px;
+        margin-right: 22px;
+        cursor: pointer;
+        transition: color 0.16s ease, border-color 0.16s ease;
+      }
+
+      .tab:hover {
+        color: var(--text);
+      }
+
+      .tab[aria-selected="true"] {
+        color: var(--accent-strong);
+        border-bottom-color: var(--accent);
+        font-weight: 500;
+      }
+
+      /* ---------- diagram gallery ---------- */
+      .group-head {
+        font-weight: 500;
+        font-size: 1.05rem;
+        margin: 34px 0 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .group-head:first-child {
+        margin-top: 0;
+      }
+
+      .group-head .count {
+        color: var(--muted);
+        font-weight: 300;
+        font-size: 0.86rem;
+        margin-left: 8px;
+      }
+
+      /* diagrams are line art on white, so show the whole sheet, not a crop */
+      .thumb.sheet {
+        background: #ffffff;
+        border: 1px solid var(--line);
+      }
+
+      .thumb.sheet img {
+        object-fit: contain;
+        padding: 8px;
+      }
+
+      .status {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* the panel shows either a simulation (iframe) or a diagram (editor + render) */
+      .player-media {
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+        object-fit: contain;
+        background: #fff;
+        padding: 18px;
+      }
+
+      .stage {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        background: #fff;
+      }
+
+      .stage[hidden] {
+        display: none;
+      }
+
+      .editor {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        min-width: 0;
+        border-right: 1px solid var(--line);
+      }
+
+      .editor-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.7rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .editor-bar button {
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        color: var(--muted);
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .editor-bar button:hover {
+        color: var(--text);
+      }
+
+      .editor textarea {
+        flex: 1;
+        min-height: 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.78rem;
+        line-height: 1.6;
+        color: var(--text);
+        background: #fff;
+        border: 0;
+        padding: 14px;
+        resize: none;
+        outline: none;
+        tab-size: 2;
+      }
+
+      .editor-error {
+        padding: 9px 14px;
+        border-bottom: 1px solid #f2d4d6;
+        background: #fdf0f1;
+        color: #b03039;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      .editor-error[hidden] {
+        display: none;
+      }
+
+      .render {
+        flex: 1;
+        min-width: 0;
+        display: grid;
+        place-items: center;
+        overflow: auto;
+        padding: 20px;
+      }
+
+      .render svg,
+      .render img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @media (max-width: 820px) {
+        .stage {
+          flex-direction: column;
+        }
+
+        .editor {
+          width: 100%;
+          height: 45%;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         * {
           transition: none !important;
@@ -282,12 +462,17 @@
       <div class="wrap">
         <h1>STEM Simulations</h1>
         <p class="lede">
-          A sample of the simulations we build for the classroom.
+          A sample of the simulations and diagrams we build for the classroom.
         </p>
+        <div class="tabs" role="tablist">
+          <button class="tab" type="button" role="tab" id="tab-sims" aria-controls="panel-sims" aria-selected="true">Simulations</button>
+          <button class="tab" type="button" role="tab" id="tab-diagrams" aria-controls="panel-diagrams" aria-selected="false">Diagrams</button>
+        </div>
       </div>
     </header>
 
     <main class="wrap">
+      <section id="panel-sims" role="tabpanel" aria-labelledby="tab-sims">
       <div class="grid">
         <button class="card" type="button" data-sim="https://shayanin-van.github.io/dc-motor/dist/#bett">
           <span class="thumb">
@@ -420,6 +605,11 @@
           </span>
         </button>
       </div>
+      </section>
+
+      <section id="panel-diagrams" role="tabpanel" aria-labelledby="tab-diagrams" hidden>
+        <p class="status">Loading diagrams&hellip;</p>
+      </section>
     </main>
 
     <div class="player" id="player" hidden>
@@ -428,39 +618,225 @@
           <span class="name" id="player-name"></span>
           <button type="button" id="player-close">Close &#10005;</button>
         </div>
-        <iframe id="player-frame" title="Simulation" allow="fullscreen; xr-spatial-tracking"></iframe>
+        <iframe id="player-frame" class="player-media" title="Simulation" allow="fullscreen; xr-spatial-tracking"></iframe>
+        <div class="stage" id="player-stage" hidden>
+          <div class="editor">
+            <div class="editor-bar">
+              <span>JSON parameters</span>
+              <button type="button" id="editor-reset">Reset</button>
+            </div>
+            <p class="editor-error" id="editor-error" hidden></p>
+            <textarea id="editor-json" spellcheck="false" aria-label="Diagram JSON"></textarea>
+          </div>
+          <div class="render" id="render-target"></div>
+        </div>
       </div>
     </div>
 
+    <script src="diagrams/index.js"></script>
     <script>
       (function () {
         var player = document.getElementById("player");
         var frame = document.getElementById("player-frame");
         var name = document.getElementById("player-name");
         var closeBtn = document.getElementById("player-close");
+        var stage = document.getElementById("player-stage");
+        var editor = document.getElementById("editor-json");
+        var editorError = document.getElementById("editor-error");
+        var target = document.getElementById("render-target");
         var lastFocus = null;
 
-        function openSim(src, label) {
+        function openPanel(label) {
           lastFocus = document.activeElement;
           name.textContent = label;
-          frame.title = label;
-          frame.src = src;
           player.hidden = false;
           document.body.style.overflow = "hidden";
           closeBtn.focus();
         }
 
+        function openSim(src, label) {
+          frame.hidden = false;
+          stage.hidden = true;
+          frame.title = label;
+          frame.src = src;
+          openPanel(label);
+        }
+
         function closeSim() {
           player.hidden = true;
           frame.removeAttribute("src"); // stop the simulation rendering
+          target.innerHTML = "";
           document.body.style.overflow = "";
           if (lastFocus) lastFocus.focus();
         }
 
-        document.querySelectorAll("[data-sim]").forEach(function (card) {
-          card.addEventListener("click", function () {
-            openSim(card.dataset.sim, card.querySelector(".title").textContent);
+        // delegated: simulation cards are in the markup, diagram cards are built on demand
+        document.addEventListener("click", function (e) {
+          var card = e.target.closest("[data-sim], [data-diagram]");
+          if (!card) return;
+          var label = card.querySelector(".title").textContent;
+          if (card.dataset.sim) openSim(card.dataset.sim, label);
+          else openDiagram(diagrams[card.dataset.diagram], label);
+        });
+
+        // ---------- tabs ----------
+        var tabs = [
+          [document.getElementById("tab-sims"), document.getElementById("panel-sims")],
+          [document.getElementById("tab-diagrams"), document.getElementById("panel-diagrams")],
+        ];
+        tabs.forEach(function (pair) {
+          pair[0].addEventListener("click", function () {
+            tabs.forEach(function (other) {
+              var active = other === pair;
+              other[0].setAttribute("aria-selected", String(active));
+              other[1].hidden = !active;
+            });
+            if (pair[0].id === "tab-diagrams") loadDiagrams();
           });
+        });
+
+        // ---------- diagram gallery ----------
+        // window.DIAGRAM_INDEX (diagrams/index.js) and the thumbnails are written by
+        // scripts/export-diagrams.mjs from @skooldio/skooldio-lams-markdown's showcase.
+        var diagrams = {};
+        (window.DIAGRAM_INDEX || []).forEach(function (d) {
+          diagrams[d.key] = d;
+        });
+        var diagramsLoaded = false;
+
+        function esc(s) {
+          return String(s).replace(/[&<>"]/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+          });
+        }
+
+        function diagramsMarkup(items) {
+          var counts = {};
+          items.forEach(function (d) {
+            counts[d.groupLabel] = (counts[d.groupLabel] || 0) + 1;
+          });
+          var html = "";
+          var group = null;
+          items.forEach(function (d) {
+            if (d.groupLabel !== group) {
+              if (group !== null) html += "</div>";
+              group = d.groupLabel;
+              html +=
+                '<h2 class="group-head">' +
+                esc(group) +
+                '<span class="count">' +
+                counts[group] +
+                "</span></h2>" +
+                '<div class="grid">';
+            }
+            html +=
+              '<button class="card" type="button" data-diagram="' + esc(d.key) + '">' +
+              '<span class="thumb sheet"><img src="diagrams/' + esc(d.file) +
+              '" alt="" loading="lazy" /></span>' +
+              '<span class="body"><span class="title">' + esc(d.displayName) + "</span>" +
+              '<span class="desc">' + esc(d.title) + "</span></span></button>";
+          });
+          return group === null ? "" : html + "</div>";
+        }
+
+        function loadDiagrams() {
+          if (diagramsLoaded) return;
+          diagramsLoaded = true;
+          var panel = document.getElementById("panel-diagrams");
+          var items = window.DIAGRAM_INDEX || [];
+          panel.innerHTML = items.length
+            ? diagramsMarkup(items)
+            : '<p class="status">No diagrams yet &mdash; run scripts/export-diagrams.mjs.</p>';
+        }
+
+        // ---------- live diagram: edit the JSON, the render follows ----------
+        // vendor/lams-diagram.js is 3 MB, so it is fetched the first time a diagram is opened,
+        // not on page load. Until it arrives (or if it fails) the exported PNG stands in.
+        var toolsPromise = null;
+        var current = null;
+        var debounce = null;
+
+        function loadTools() {
+          if (toolsPromise) return toolsPromise;
+          toolsPromise = new Promise(function (resolve, reject) {
+            if (window.LAMS_TOOLS) return resolve(window.LAMS_TOOLS);
+            var tag = document.createElement("script");
+            tag.src = "vendor/lams-diagram.js";
+            tag.onload = function () {
+              window.LAMS_TOOLS ? resolve(window.LAMS_TOOLS) : reject(new Error("no registry"));
+            };
+            tag.onerror = function () {
+              reject(new Error("could not load vendor/lams-diagram.js"));
+            };
+            document.head.appendChild(tag);
+          });
+          return toolsPromise;
+        }
+
+        function stillImage(d) {
+          target.innerHTML =
+            '<img src="diagrams/' + esc(d.file) + '" alt="' + esc(d.displayName) + '" />';
+        }
+
+        function openDiagram(d, label) {
+          current = d;
+          editor.value = JSON.stringify({ name: d.name, parameters: d.params }, null, 2);
+          editorError.hidden = true;
+          stage.hidden = false;
+          frame.hidden = true;
+          stillImage(d); // placeholder while the renderer loads
+          openPanel(label);
+          renderJson();
+        }
+
+        function renderJson() {
+          var d = current;
+          var spec;
+          try {
+            spec = JSON.parse(editor.value);
+          } catch (err) {
+            editorError.hidden = false;
+            editorError.textContent = err.message;
+            return;
+          }
+          editorError.hidden = true;
+          loadTools()
+            .then(function (tools) {
+              if (current !== d) return; // panel moved on while the bundle was loading
+              var tool =
+                tools[d.key] ||
+                Object.keys(tools)
+                  .map(function (k) {
+                    return tools[k];
+                  })
+                  .find(function (t) {
+                    return t.declaration.name === spec.name;
+                  });
+              if (!tool) throw new Error('unknown diagram tool "' + spec.name + '"');
+              target.innerHTML = "";
+              return tool.render(target, spec.parameters || {});
+            })
+            .catch(function (err) {
+              if (current !== d) return;
+              editorError.hidden = false;
+              editorError.textContent = String(err && err.message ? err.message : err);
+              stillImage(d); // fall back to the exported image
+            });
+        }
+
+        editor.addEventListener("input", function () {
+          clearTimeout(debounce);
+          debounce = setTimeout(renderJson, 400);
+        });
+
+        document.getElementById("editor-reset").addEventListener("click", function () {
+          if (!current) return;
+          editor.value = JSON.stringify(
+            { name: current.name, parameters: current.params },
+            null,
+            2,
+          );
+          renderJson();
         });
 
         closeBtn.addEventListener("click", closeSim);
